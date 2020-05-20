@@ -1,12 +1,13 @@
 <?php 
 require_once "controllers/FrontendController.php";
+$controler = new FrontendController();
 
     if(isset($_GET['page']) && !empty($_GET['page'])){
         $url = htmlspecialchars($_GET['page']);
             switch ($url){
-                case "home": getHome();
+                case "home":  $controler->getHome();
                 break;
             }
         } else {
-            getHome();
+           $controler->getHome();
 }
