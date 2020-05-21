@@ -8,6 +8,11 @@ class PostDao extends Model {
             return $lastPosts;
     }
 
-    
+    public function getPostById($idpost){
+        $postById = $this->getPdoConnexion()->prepare('select id_post, title_post, content_post, author_post, date_post from posts where id_post=?');
+        $postById->execute(array($idpost));
+        return $postById->fetch();
+    }
+
 
 }

@@ -16,6 +16,7 @@ class FrontendController{
     }
 
     public function getPost(){
+        $postById = $this->postDao->getPostById($_GET['id']);
         require_once "views/front/post.php";
     }
 
