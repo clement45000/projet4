@@ -24,7 +24,6 @@ ob_start();
  
 <?php
 $content = ob_get_clean();
-$title = 'Article';
 require "views/commons/template.php";
 ?>
 

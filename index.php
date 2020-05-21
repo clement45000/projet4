@@ -9,6 +9,9 @@ $frontController = new FrontendController();
                 case "home": $frontController->getHome();
                 break;
                 case "post": $frontController->getPost();
+                break;
+                case "biographie": $frontController->getBiographie();
+                break;
             }
         } else {
             $frontController->getHome();
