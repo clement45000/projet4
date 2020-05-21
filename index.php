@@ -8,6 +8,7 @@ $frontController = new FrontendController();
             switch ($url){
                 case "home": $frontController->getHome();
                 break;
+                case "post": $frontController->getPost();
             }
         } else {
             $frontController->getHome();

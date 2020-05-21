@@ -15,6 +15,10 @@ class FrontendController{
         require_once "views/front/home.php";
     }
 
+    public function getPost(){
+        require_once "views/front/post.php";
+    }
+
   
 
 
