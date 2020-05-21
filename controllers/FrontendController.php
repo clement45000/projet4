@@ -33,6 +33,7 @@ class FrontendController{
 
     public function getPosts() {
         $title = 'Toute mes aventures';
+        $allPosts = $this->postDao->getAllPosts();
         require_once "views/front/posts.php";
     }
 

@@ -14,5 +14,10 @@ class PostDao extends Model {
         return $postById->fetch(); //On va chercher une seul colonne celle ou l'id correspon à la var passé en param
     }
 
+    public function getAllPosts(){
+        $allPosts = $this->getPdoConnexion()->query("SELECT * From posts");
+        return $allPosts;
+    
+    }
 
 }

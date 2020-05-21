@@ -17,7 +17,7 @@ ob_start();
                 </div> 
             <hr class="bg-dark mb-4">
             <?php endforeach; ?>
- 
+        
 
 
 

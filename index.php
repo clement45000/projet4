@@ -1,6 +1,8 @@
 <?php 
 require_once "controllers/FrontendController.php";
+require_once "controllers/BackendController.php";
 $frontController = new FrontendController();
+$backController = new BackendController();
 
 
     if(isset($_GET['page']) && !empty($_GET['page'])){
@@ -20,6 +22,12 @@ $frontController = new FrontendController();
                 break;
                 case "login": $frontController->getLogIn();
                 break;
+                case "admin": $backController->adminHome();
+                break;
+                case "createpost": $backController->createPost();
+                break; 
+                case "updatepost": $backController->updatePost();
+                break; 
             }
         } else {
             $frontController->getHome();
