@@ -12,6 +12,10 @@ $frontController = new FrontendController();
                 break;
                 case "biographie": $frontController->getBiographie();
                 break;
+                case "signup": $frontController->getSignUp();
+                break;
+                case "login": $frontController->getLogIn();
+                break;
             }
         } else {
             $frontController->getHome();

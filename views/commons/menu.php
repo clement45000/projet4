@@ -18,7 +18,7 @@
                     <a class="nav-link  text-light" href="?page=contact">Contact</a>
                 </li>
             </ul>
-            <a class="nav-link text-light" href="?page=connexion">Connexion</a>
-            <a class="nav-link text-light pr-5" href="?page=inscription">Inscription</a>
+            <a class="nav-link text-light" href="?page=login">Connexion</a>
+            <a class="nav-link text-light pr-5" href="?page=signup">Inscription</a>
         </div>
     </nav>
