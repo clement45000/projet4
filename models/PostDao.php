@@ -8,4 +8,6 @@ class PostDao extends Model {
             return $lastPosts;
     }
 
+    
+
 }

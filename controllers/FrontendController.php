@@ -3,6 +3,8 @@ require_once 'models/PostDao.php';
 
 class FrontendController{
 
+    private $postDao;
+
     public function __construct(){
         // créatoin de l'objet des l'instanciation de la class
         $this->postDao = new PostDao();
@@ -13,12 +15,10 @@ class FrontendController{
         require_once "views/front/home.php";
     }
 
+  
+
+
 
 }
-
-
-
-
- 
 
 ?>
