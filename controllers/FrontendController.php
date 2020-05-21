@@ -31,6 +31,17 @@ class FrontendController{
         require_once "views/front/biographie.php";
     }
 
+    public function getPosts() {
+        $title = 'Toute mes aventures';
+        require_once "views/front/posts.php";
+    }
+
+    public function getContact() {
+        $title = 'Contactez-moi';
+        require_once "views/front/contact.php";
+    }
+
+
     
     public function getSignUp() {
         $title = 'Inscription';

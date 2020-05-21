@@ -12,7 +12,7 @@
                     <a class="nav-link text-light " href="?page=biographie">Biographie</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light " href="?page=articles">Mes articles</a>
+                    <a class="nav-link text-light " href="?page=posts">Mes articles</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link  text-light" href="?page=contact">Contact</a>
