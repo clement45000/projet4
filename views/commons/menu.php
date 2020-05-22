@@ -17,6 +17,9 @@
                 <li class="nav-item">
                     <a class="nav-link  text-light" href="?page=contact">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link  text-light" href="?page=admin">Admin</a>
+                </li>
             </ul>
             <a class="nav-link text-light" href="?page=login">Connexion</a>
             <a class="nav-link text-light pr-5" href="?page=signup">Inscription</a>

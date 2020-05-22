@@ -15,7 +15,15 @@ class BackendController{
 
     public function AdminHome(){
         $title = 'Administration';
+        $allPosts = $this->postDao->getAllPosts();
         require_once "views/back/admin.php";
+    }
+
+    public function deleteComment(){
+        $title = 'deletecomment';
+        $postById = $this->postDao->getPostById($_GET['id']); //['id'] param url du lien de home (lire la suite et titre)
+        $commentsById = $this->commentDao->getCommentsById($_GET['id']);
+        require_once "views/back/deletecomment.php";
     }
 
     public function createPost(){

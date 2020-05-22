@@ -28,6 +28,8 @@ $backController = new BackendController();
                 break; 
                 case "updatepost": $backController->updatePost();
                 break; 
+                case "deletecomment": $backController->deleteComment();
+                break; 
             }
         } else {
             $frontController->getHome();
