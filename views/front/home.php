@@ -11,7 +11,7 @@ ob_start();
     <?php foreach ($lastPosts as $lastPost): ?>
                 <div class="mt-5 mb-5">    
                     <h3 class="text-info"><a class=" text-decoration-none" href="?page=post&id=<?=$lastPost['id_post']?>"><?= $lastPost['title_post'] ?></a></h3>
-                    <p><em>Publié le</em> <?= $lastPost['date_post'] ?></p>
+                    <p><em>Publié le</em> <?= date("d/m/Y", strtotime($lastPost['date_post'])); ?></p>
                     <p class="text-muted"><?= $lastPost['content_post'] ?></p>
                     <a class="text-decoration-none" href="?page=post&id=<?=$lastPost['id_post']?>">Lire la suite</a>
                 </div> 

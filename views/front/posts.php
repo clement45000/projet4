@@ -11,7 +11,7 @@ ob_start();
         <?php foreach ($allPosts as $allPost): ?>
                 <div class="mt-5 mb-5">    
                 <h3 class="text-info"><a class=" text-decoration-none" href="?page=post&id=<?=$allPost['id_post']?>"><?= $allPost['title_post'] ?></a></h3>  
-               <p> <?=$allPost['date_post']?> </p>
+               <p> <?=date("d/m/Y", strtotime($allPost['date_post']));?> </p>
                 <?=$allPost['content_post']?> 
                 </div> 
             <?php endforeach; ?>
