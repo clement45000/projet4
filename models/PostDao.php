@@ -20,4 +20,10 @@ class PostDao extends Model {
     
     }
 
+    public function createPostdb($title, $date, $content, $author){
+        $create = $this->getPdoConnexion()->prepare('INSERT INTO posts(title_post,date_post,content_post,author_post) VALUES(?, ?, ?, ?)');
+        $resultat = $create->execute(array($title, $date, $content, $author));
+        return $resultat;
+    }
+
 }

@@ -8,27 +8,27 @@ $backController = new BackendController();
     if(isset($_GET['page']) && !empty($_GET['page'])){
         $url = htmlspecialchars($_GET['page']);
             switch ($url){
-                case "home": $frontController->getHome();
+                case "home": $frontController->getHome();//Accueil avec les 6 derniers articles front
                 break;
-                case "post": $frontController->getPost();
+                case "post": $frontController->getPost();// Article en particulier front
                 break;
-                case "biographie": $frontController->getBiographie();
+                case "biographie": $frontController->getBiographie(); // Biographie front
                 break;
-                case "posts": $frontController->getPosts();
+                case "posts": $frontController->getPosts(); // Tous les articles front
                 break;
-                case "contact": $frontController->getContact();
+                case "contact": $frontController->getContact(); // formulaire de contact front
                 break;
-                case "signup": $frontController->getSignUp();
+                case "signup": $frontController->getSignUp(); //Inscription front
                 break;
-                case "login": $frontController->getLogIn();
+                case "login": $frontController->getLogIn(); // Connexion front
                 break;
-                case "admin": $backController->adminHome();
+                case "admin": $backController->adminHome(); //Admin accueil back
                 break;
-                case "createpost": $backController->createPost();
+                case "createpost": $backController->createPost(); // Ajouter un article back
                 break; 
-                case "updatepost": $backController->updatePost();
+                case "updatepost": $backController->updatePost(); // Modifier un article back
                 break; 
-                case "deletecomment": $backController->deleteComment();
+                case "deletecomment": $backController->deleteComment(); // Supprimer un commentaire back
                 break; 
             }
         } else {

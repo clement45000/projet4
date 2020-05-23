@@ -6,7 +6,7 @@ ob_start();
             <h1 class="text-center mt-5 pt-5" > Les aventures de Jean forteroch en Alaska</h1>
             <p class="text-center mt-4 pb-5 ">Je vous souhaite la bienvenue</p>
         </div>
-        <h2 class="text-center mt-5"> Derniers articles publié</h2>
+        <h2 class="text-center mt-5"> Derniers articles publiés</h2>
         <hr class="mt-5">
     <?php foreach ($lastPosts as $lastPost): ?>
                 <div class="mt-5 mb-5">    
