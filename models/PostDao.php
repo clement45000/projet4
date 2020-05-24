@@ -25,6 +25,28 @@ class PostDao extends Model{
         $resultat = $create->execute(array($title, $date, $content, $author));
         return $resultat;
     }
+    public function deletePostAndComments($idpost){
+        $delete = $this->getPdoConnexion()->prepare('DELETE FROM posts WHERE id_post =?');
+        $delete->execute(array($idpost));
+        $delete = $this->getPdoConnexion()->prepare('DELETE FROM comments WHERE post_id=?');
+        $delete->execute(array($idpost));
+        return $delete;
+  
+    }
+    // public function deletePostAndComments($idpost){
+    //     $delete_post = $this->getPdoConnexion()->prepare('DELETE FROM posts WHERE id_post =?');
+    //     $delete_com = $this->getPdoConnexion()->prepare('DELETE FROM comments WHERE post_id=?');
+    //     $delete_post->execute(array($idpost));
+    //     $delete_com->execute(array($idpost));
+    //     return $delete_post;
+    //     return $delete_com;
+
+    // }
+
+
+    // $req_comm=$bdd->prepare('DELETE FROM commentaires WHERE id_billet = ?');
+    // $req=$bdd->prepare('DELETE FROM billets WHERE id = ?');
+    // $req_comm->execute([$_GET['id']]);
 
 
 

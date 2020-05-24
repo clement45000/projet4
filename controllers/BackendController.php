@@ -19,18 +19,21 @@ class BackendController{
         require_once "views/back/admin.php";
     }
 
-    //SUPPRIMER UN COMMENTAIRE EN PARTICULIER
+    //SUPPRIMER UN COMMENTAIRE EN PARTICULIER (on affiche l'article($id) et les comm($id_f_k)associés )
     public function deleteComment(){
         $title = 'deletecomment';
-        $postById = $this->postDao->getPostById($_GET['id']); //['id'] param url du lien de home (lire la suite et titre)
-        $commentsById = $this->commentDao->getCommentsById($_GET['id']);
+         $postById = $this->postDao->getPostById($_GET['id']); //on recupere l'id et on affiche l'article (affichage)
+         $commentsById = $this->commentDao->getCommentsById($_GET['id']); // on recupere l'id et on affiche les com liées à l'article (affichage)
         require_once "views/back/deletecomment.php";
     }
+
 
     //SUPPRIMER UN ARTCILE ET SES COMMENTAIRE ASSOCIES
     public function deletePost(){
         $title = 'admin';
-        require_once "views/back/deletepost.php";
+        $deletePost = $this->postDao->deletePostAndComments($_GET['id']); 
+        header('Location:?page=admin');
+        
     }
 
     //CREER UN ARTICLE ET AJOUTER
