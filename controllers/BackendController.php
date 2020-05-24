@@ -13,28 +13,42 @@ class BackendController{
         $this->commentDao = new CommentDao();
     }
 
+    //AFFICHE UN TABLEAU DES ARTICLES AVEC ACTION DE BASE DU CRUD
     public function AdminHome(){
         $title = 'Administration';
         $allPosts = $this->postDao->getAllPosts();
         require_once "views/back/admin.php";
     }
 
-    //SUPPRIMER UN COMMENTAIRE EN PARTICULIER (on affiche l'article($id) et les comm($id_f_k)associés )
-    public function deleteComment(){
-        $title = 'deletecomment';
+    //AFFICHE UN ARTICLE ET SES COMMENTAIRE COTE ADMIN
+    public function postAdmin(){
+        $title = 'Administration';
          $postById = $this->postDao->getPostById($_GET['id']); //on recupere l'id et on affiche l'article (affichage)
          $commentsById = $this->commentDao->getCommentsById($_GET['id']); // on recupere l'id et on affiche les com liées à l'article (affichage)
-        require_once "views/back/deletecomment.php";
+        require_once "views/back/postadmin.php";
     }
 
 
     //SUPPRIMER UN ARTCILE ET SES COMMENTAIRE ASSOCIES
+    // btn supprimer dans admin
     public function deletePost(){
-        $title = 'admin';
+        $title = 'Administration';
         $deletePost = $this->postDao->deletePostAndComments($_GET['id']); 
         header('Location:?page=admin');
-        
     }
+
+    //SUPPRIMER UN COMMENTAIRE EN PARTICULIER
+    public function deleteComment(){
+         $deletecommentbyid = $this->commentDao->deleteCommentById($_GET['id']);
+         header('Location:?page=validation'); //test
+        //  require_once "views/back/deletecomment.php";
+    }
+
+    public function validate(){
+        $title = 'Administration';
+        require_once "views/back/deletecomment.php";
+    }
+
 
     //CREER UN ARTICLE ET AJOUTER
      public function createPost(){
@@ -66,9 +80,6 @@ class BackendController{
         $title = 'Administration';
         require_once "views/back/updatepost.php";
     }
-
-
-
  
 }
 

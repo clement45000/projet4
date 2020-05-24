@@ -16,7 +16,7 @@ ob_start();
             <?php foreach ($allPosts as $allPost): ?>
 
                 <tr>
-                    <td class="align-middle"><a href="?page=deletecomment&id=<?=$allPost['id_post']?>"><?= $allPost['title_post'] ?></a></td>
+                    <td class="align-middle"><a href="?page=postadmin&id=<?=$allPost['id_post']?>"><?= $allPost['title_post'] ?></a></td>
                     <td class="align-middle"><?=date("d/m/Y", strtotime($allPost['date_post']));?></td>
                     <td class="align-middle"><a href="?page=updatepost" class="btn btn-primary">Modifier</a></td>
 

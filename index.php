@@ -26,9 +26,13 @@ $backController = new BackendController();
                 break;
                 case "createpost": $backController->createPost(); // Ajouter un article back
                 break; 
-                case "deletepost": $backController->deletePost(); //Supprimer un commentaire seulement
+                case "deletepost": $backController->deletePost(); //Supprimer un Article et ses commentaires
                 break; 
-                case "deletecomment": $backController->deleteComment(); //Supprimer un commentaire seulement
+                case "deletecomment": $backController->deleteComment(); //Supprimer un Article et ses commentaires
+                break;
+                case "validation": $backController->validate(); //Supprimer un Article et ses commentaires
+                break;
+                case "postadmin": $backController->postAdmin(); //Affiche un article et ses commentaires
                 break; 
                 case "updatepost": $backController->updatePost(); // Modifier un article back
                 break; 
