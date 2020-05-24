@@ -16,13 +16,6 @@ ob_start();
                 </div> 
             <?php endforeach; ?>
 
-
-            <?php var_dump($allPosts);?>
-           
-
-
-
-
     </div>
 <?php
 $content = ob_get_clean();

@@ -26,9 +26,11 @@ $backController = new BackendController();
                 break;
                 case "createpost": $backController->createPost(); // Ajouter un article back
                 break; 
-                case "updatepost": $backController->updatePost(); // Modifier un article back
+                case "deletepostandcomment": $backController->deleteComment(); //Supprimer un commentaire seulement
                 break; 
-                case "deletecomment": $backController->deleteComment(); // Supprimer un commentaire back
+                case "deletecomment": $backController->deleteComment(); //Supprimer un commentaire seulement
+                break; 
+                case "updatepost": $backController->updatePost(); // Modifier un article back
                 break; 
             }
         } else {

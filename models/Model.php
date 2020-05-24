@@ -7,7 +7,7 @@ abstract class Model{
     private static function setPdoConnexion(){
         self::$pdo = new PDO("mysql:host=localhost;dbname=alaska;charset=utf8",'root','');
         
-        self::$pdo->setAttribute(PDO::ATTR_ERRMODE,pdo::ERRMODE_WARNING);
+        self::$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
     }
     
     protected function getPdoConnexion(){

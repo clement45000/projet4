@@ -8,4 +8,5 @@ class CommentDao extends Model {
         $commentsById->execute(array($idpost));
         return $commentsById; 
     }
+
 }
