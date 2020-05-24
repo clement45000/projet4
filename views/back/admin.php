@@ -21,7 +21,7 @@ ob_start();
                     <td class="align-middle"><a href="?page=updatepost" class="btn btn-primary">Modifier</a></td>
 
                     <td class="align-middle">
-                        <form method="POST" action="?page=deletepost&id=<?=$allPost['id_post']?>">
+                        <form method="POST" action="?page=deletepost&id=<?=$allPost['id_post']?>"> <!-- SUPPRIMER UN ARTICLE ET COMM-->
                             <button class="btn btn-danger" type="submit">Supprimer</button>
                         </form>
                     </td>

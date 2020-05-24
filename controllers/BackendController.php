@@ -19,6 +19,7 @@ class BackendController{
         require_once "views/back/admin.php";
     }
 
+    //SUPPRIMER UN COMMENTAIRE EN PARTICULIER
     public function deleteComment(){
         $title = 'deletecomment';
         $postById = $this->postDao->getPostById($_GET['id']); //['id'] param url du lien de home (lire la suite et titre)
@@ -26,6 +27,13 @@ class BackendController{
         require_once "views/back/deletecomment.php";
     }
 
+    //SUPPRIMER UN ARTCILE ET SES COMMENTAIRE ASSOCIES
+    public function deletePost(){
+        $title = 'admin';
+        require_once "views/back/deletepost.php";
+    }
+
+    //CREER UN ARTICLE ET AJOUTER
      public function createPost(){
          $title = 'Administration';
          $valid = '';
@@ -50,6 +58,7 @@ class BackendController{
          require_once "views/back/addpost.php";
      }
 
+    //MODIFICATION D UN ARTICLE 
      public function updatePost(){
         $title = 'Administration';
         require_once "views/back/updatepost.php";
