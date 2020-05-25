@@ -31,9 +31,11 @@ ob_start();
             </table>
             <a href="?page=createpost" class="btn btn-success d-block">Ajouter un article</a>
             <h2 class="mt-5">Commentaires signalés</h2>
-
-
-
+            <?php foreach ($getcommentsreported as $getcommentreported): ?>
+              <p>Ecrit par <?=$getcommentreported['pseudo_comment']?></p>
+              <p>le <?=$getcommentreported['date_comment']?></p>
+              <p>contenu : <?=$getcommentreported['content_comment']?></p>
+            <?php endforeach; ?>
 
 
 

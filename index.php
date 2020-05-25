@@ -24,6 +24,8 @@ $backController = new BackendController();
                 break;
                 case "comment": $frontController->addComment(); // Ajouter un commentaire
                 break;
+                case "reportcomment": $frontController->reportComment(); // Ajouter un commentaire
+                break;
                 case "admin": $backController->adminHome(); //Admin accueil back
                 break;
                 case "createpost": $backController->createPost(); // Ajouter un article back

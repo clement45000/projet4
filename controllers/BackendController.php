@@ -16,7 +16,9 @@ class BackendController{
     //AFFICHE UN TABLEAU DES ARTICLES AVEC ACTION DE BASE DU CRUD
     public function AdminHome(){
         $title = 'Administration';
+
         $allPosts = $this->postDao->getAllPosts();
+        $getcommentsreported = $this->commentDao->getCommentsReported();
         require_once "views/back/admin.php";
     }
 

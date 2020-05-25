@@ -26,7 +26,7 @@ class FrontendController{
         require_once "views/front/post.php";
     }
 
-    //Ajouter un commentaire probleme de traitement condition et redirection
+    //AJOUT COMMENTAIRE ATTENTION  probleme de traitement condition et redirection
      public function addComment(){
          $title = 'commentaire validation';  
         
@@ -39,6 +39,13 @@ class FrontendController{
              header('Location: ?page=post&id='.$comment_idpost);
             
      }
+
+     //SIGNALER UN COMMENTAIRE
+    public function reportComment(){
+        $title = 'Jean Forteroch';
+        $report = $this->commentDao->updateCommentForReporte($_GET['id']);//id_commentaire
+        require_once "views/front/reportcomment.php";
+    }
 
     public function getBiographie() {
         $title = 'Biographie';

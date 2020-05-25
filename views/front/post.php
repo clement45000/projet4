@@ -20,7 +20,10 @@ ob_start();
                 <div class="text-center border border-bg-dark bg-light mt-2 pb-2">
                     <p class="mt-2 ml-2 mb-0"><strong><?=$commentById['pseudo_comment'] ?></strong> à écrit le <?=$commentById['date_comment']?></p>
                     <p class="mt-0 mb-0 ml-2"><?=$commentById['content_comment'] ?></p> 
-                    <a href="#" class="ml-2 pt-0">Signaler le commentaires</a>
+                    <form method="POST" action="?page=reportcomment&id=<?=$commentById['id_comment']?>" onSubmit="return confirm ('voulez-vous vraiment signaler ce commentaire ?');">
+                            <button class="btn btn-link" type="submit">signaler le commentaire</button>
+                    </form>
+                   <!-- <a href="?page=jojo&id=< class="ml-2 pt-0">Signaler le commentaires</a>-->
                 </div>    
             <?php endforeach; ?>  
         </div>
