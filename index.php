@@ -22,6 +22,8 @@ $backController = new BackendController();
                 break;
                 case "login": $frontController->getLogIn(); // Connexion front
                 break;
+                case "Comment": $frontController->addComment(); // Ajouter un commentaire
+                break;
                 case "admin": $backController->adminHome(); //Admin accueil back
                 break;
                 case "createpost": $backController->createPost(); // Ajouter un article back

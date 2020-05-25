@@ -20,19 +20,19 @@ ob_start();
     <form action="?page=createpost" method="post">
         <div class="form-group">
             <label for="Titre">Titre</label>
-            <input type="text" name="title" id="title" class="form-control" placeholder= "Entrez votre titre" >
+            <input type="text" name="title" id="title" class="form-control" placeholder= "Entrez votre titre" value="<?= $title_art ?>" >
         </div>
         <div class="form-group">
             <label for="date">Date</label>
-            <input type="date" name="date" id="datepost" class="form-control" placeholder= "Entrez la date du jour" >
+            <input type="date" name="date" id="datepost" class="form-control" placeholder= "Entrez la date du jour" value="<?= $date_art ?>">
         </div>
         <div class="form-group">
             <label for="content">Contenu de l'article</label>
-            <textarea class="form-control" id="content" name="content"  placeholder= "Ecrivez votre article" ></textarea>
+            <textarea class="form-control" id="content" name="content"  placeholder= "Ecrivez votre article"><?= $content_art ?></textarea>
         </div>
         <div class="form-group">
             <label for="Author">Auteur</label>
-            <input type="text" name="author" id="author" class="form-control" placeholder= "Entrez le nom de l'auteur" >
+            <input type="text" name="author" id="author" class="form-control" placeholder= "Entrez le nom de l'auteur" value="<?= $author_art ?>">
         </div>
         <button type="submit" class="btn btn-primary">Publier votre article</button>
         </form>

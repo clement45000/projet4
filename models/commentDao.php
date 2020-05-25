@@ -15,6 +15,10 @@ class CommentDao extends Model {
         return $deletecomment;
     }
 
+    public function addCommentdb($postid,$pseudo,$content){
+        $addComment = $this->getPdoConnexion()->prepare('INSERT INTO comments');
+    }
+
     
 
 }

@@ -55,6 +55,10 @@ class BackendController{
          $title = 'Administration';
          $valid = '';
          $unvalid ='';
+         $title_art='';
+         $date_art='';
+         $content_art='';
+         $author_art='';
 
          if(isset($_POST['title'], $_POST['date'], $_POST['content'], $_POST['author'])){
              if(!empty($_POST['title']) AND !empty($_POST['date']) AND !empty($_POST['content']) AND !empty($_POST['author'])){
@@ -69,6 +73,10 @@ class BackendController{
              header('Location: ?page=admin');
              }else {
                 $unvalid = 'Veuillez remplir tous les champs';
+                $title_art = ($_POST['title']);
+                $date_art = ($_POST['date']);
+                $content_art = ($_POST['content']);
+                $author_art = ($_POST['author']);
              }
 
          }
