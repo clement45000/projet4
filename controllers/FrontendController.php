@@ -18,13 +18,27 @@ class FrontendController{
         $lastPosts = $this->postDao->getLastSixPost();
         require_once "views/front/home.php";
     }
-
+    //Lecture d'un billet via son id
     public function getPost(){
         $title = 'Article';
-        $postById = $this->postDao->getPostById($_GET['id']); //['id'] param url du lien de home (lire la suite et titre)
-        $commentsById = $this->commentDao->getCommentsById($_GET['id']);
+        $postById = $this->postDao->getPostById($_GET['id']); //Affiche un article via l'id 
+        $commentsById = $this->commentDao->getCommentsById($_GET['id']); //Afficher un commentaire via son id
         require_once "views/front/post.php";
     }
+
+    //Ajouter un commentaire probleme de traitement condition et redirection
+     public function addComment(){
+         $title = 'commentaire validation';  
+        
+             $comment_title = htmlspecialchars($_POST['pseudo']); 
+             $comment_content = htmlspecialchars($_POST['content']); 
+             $comment_flag = htmlspecialchars($_POST['flag']); 
+             $comment_idpost = htmlspecialchars($_POST['idpost']); 
+
+             $addcomment = $this->commentDao->addCommentdb($comment_title, $comment_content, $comment_flag, $comment_idpost);
+             header('Location: ?page=post&id='.$comment_idpost);
+            
+     }
 
     public function getBiographie() {
         $title = 'Biographie';

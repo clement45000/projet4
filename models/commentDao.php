@@ -4,7 +4,8 @@ require_once "models/Model.php";
 class CommentDao extends Model {
 
     public function getCommentsById($idpost) {
-        $commentsById = $this->getPdoConnexion()->prepare('select id_comment, pseudo_comment, content_comment, date_comment, post_id from comments where post_id=?');
+                                                        // DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment 
+        $commentsById = $this->getPdoConnexion()->prepare('select id_comment, pseudo_comment, content_comment, DATE_FORMAT(date_comment, \'%d/%m/%Y\') AS date_comment, post_id from comments where post_id=?');
         $commentsById->execute(array($idpost));
         return $commentsById; 
     }
@@ -15,8 +16,10 @@ class CommentDao extends Model {
         return $deletecomment;
     }
 
-    public function addCommentdb($postid,$pseudo,$content){
-        $addComment = $this->getPdoConnexion()->prepare('INSERT INTO comments');
+    public function addCommentdb($pseudo, $contenu, $flag, $idpost){
+        $addcomment = $this->getPdoConnexion()->prepare('INSERT INTO comments(pseudo_comment, content_comment, flag_comment, post_id, date_comment) VALUES(?, ?, ?, ?, NOW())');
+        $addcomment->execute(array($pseudo, $contenu, $flag, $idpost));
+        return $addcomment;
     }
 
     

@@ -22,7 +22,7 @@ $backController = new BackendController();
                 break;
                 case "login": $frontController->getLogIn(); // Connexion front
                 break;
-                case "Comment": $frontController->addComment(); // Ajouter un commentaire
+                case "comment": $frontController->addComment(); // Ajouter un commentaire
                 break;
                 case "admin": $backController->adminHome(); //Admin accueil back
                 break;
@@ -30,9 +30,9 @@ $backController = new BackendController();
                 break; 
                 case "deletepost": $backController->deletePost(); //Supprimer un Article et ses commentaires
                 break; 
-                case "deletecomment": $backController->deleteComment(); //Supprimer un Article et ses commentaires
+                case "deletecomment": $backController->deleteComment(); //Supprimer un Commentaire
                 break;
-                case "validation": $backController->validate(); //Supprimer un Article et ses commentaires
+                case "validation": $backController->validate(); //Confirmation de suppresion d'un commentaire
                 break;
                 case "postadmin": $backController->postAdmin(); //Affiche un article et ses commentaires
                 break; 
