@@ -1,9 +1,9 @@
  body{
-  
-    background-color: rgb(220, 234, 247);
+    background-color: rgb(233, 233, 251); 
 } 
+
 .simg{
     height: 300px;
     width: 100%;
-    position: relative;
+
 }

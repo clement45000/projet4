@@ -17,7 +17,7 @@ ob_start();
 
                 <tr>
                     <td class="align-middle"><a href="?page=postadmin&id=<?=$allPost['id_post']?>"><?= $allPost['title_post'] ?></a></td>
-                    <td class="align-middle"><?=date("d/m/Y", strtotime($allPost['date_post']));?></td>
+                    <td class="align-middle"><?=$allPost['date_post']?></td>
                     <td class="align-middle"><a href="?page=updatepost&id=<?=$allPost['id_post']?>" class="btn btn-primary">Modifier</a></td>
                   
                     <td class="align-middle">
@@ -33,7 +33,7 @@ ob_start();
             <hr class='mt-5 pt-2'>
         </div>
 
-            <!--tableau 2-->
+
         <div class="container shadow p-3 mb-5 rounded border border-bg-dark bg-white  mt-5 mb-5 pl-5 pr-5">
             <h2 class="text-center mt-5" >Commentaires signalés</h2>
             <table class="table text-center  mt-5">
@@ -52,10 +52,13 @@ ob_start();
                     <td class="align-middle"><?=$getcommentreported['pseudo_comment']?></td>
                     <td class="align-middle"><?=$getcommentreported['date_comment']?></td>
                     <td class="align-middle"><?=$getcommentreported['content_comment']?></td>
-                    <td class="align-middle"><a href="?page=updatepost" class="btn btn-primary">Ignorer</a></td>
-
                     <td class="align-middle">
-                        <form method="POST" action="" onSubmit="return confirm('Voulez-vous vraiment supprimer ce commentaire ?');"> <!-- SUPPRIMER UN ARTICLE ET COMM-->
+                    <form method="POST" action="?page=ignorecomment&comment=<?=$getcommentreported['id_comment']?>" onSubmit="return confirm('voulez-vous vraiment ignorer ce commentaire ?');"> 
+                            <button class="btn btn-success text-light" type="submit">Ignorer</button>
+                    </form>
+                    </td>
+                    <td class="align-middle">
+                        <form method="POST" action="?page=deletecommentreported&comment=<?=$getcommentreported['id_comment']?>" onSubmit="return confirm('Voulez-vous vraiment supprimer le commentaire ?');"> 
                             <button class="btn btn-danger" type="submit">Supprimer</button>
                         </form>
                     </td>

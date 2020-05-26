@@ -24,9 +24,13 @@ $backController = new BackendController();
                 break;
                 case "comment": $frontController->addComment(); // Ajouter un commentaire
                 break;
-                case "reportcomment": $frontController->reportComment(); // Ajouter un commentaire
+                case "reportcomment": $frontController->reportComment(); // Signalé un commentaire
                 break;
                 case "deletecomment": $backController->deleteComment(); //Supprimer un Commentaire
+                break;
+                case "deletecommentreported": $backController->deleteCommentReported(); //Supprimer un Commentaire
+                break;
+                case "ignorecomment": $backController->ignoreComment(); //Ignorer un commentaire signalé
                 break;
                 case "admin": $backController->adminHome(); //Admin accueil back
                 break;

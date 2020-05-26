@@ -4,7 +4,7 @@ require_once "models/Model.php";
 class PostDao extends Model{
 
     public function getLastSixPost(){
-            $lastPosts = $this->getPdoConnexion()->query("SELECT * From posts order by id_post desc limit 0,5");
+            $lastPosts = $this->getPdoConnexion()->query('SELECT id_post, title_post, content_post, author_post, DATE_FORMAT(date_post, \'%d/%m/%Y\') AS date_post From posts order by date_post desc limit 0,5');
             return $lastPosts;
     }
 
@@ -15,7 +15,8 @@ class PostDao extends Model{
     }
 
     public function getAllPosts(){
-        $allPosts = $this->getPdoConnexion()->query("SELECT * From posts order by id_post desc");
+        // $allPosts = $this->getPdoConnexion()->query("SELECT * From posts order by id_post desc");
+        $allPosts = $this->getPdoConnexion()->query('SELECT id_post, title_post, content_post, author_post, DATE_FORMAT(date_post, \'%d/%m/%Y\') AS date_post From posts order by date_post desc');
         return $allPosts;
     
     }

@@ -8,7 +8,6 @@ class BackendController{
     private $commentDao;
 
     public function __construct(){
-        // créatoin de l'objet des l'instanciation de la class
         $this->postDao = new PostDao();
         $this->commentDao = new CommentDao();
     }
@@ -42,17 +41,17 @@ class BackendController{
     //SUPPRIMER UN COMMENTAIRE EN PARTICULIER
     public function deleteComment(){
          $deletecommentbyid = $this->commentDao->deleteCommentById($_GET['id']);
-         header('Location:?page=validation'); //test
-        //  require_once "views/back/deletecomment.php";
+         header('Location:?page=validation'); 
     }
 
+    //Validation du commentaire supprimé
     public function validate(){
         $title = 'Administration';
         require_once "views/back/deletecomment.php";
     }
 
 
-    //CREER UN ARTICLE ET AJOUTER
+    //CREER UN ARTICLE
      public function createPost(){
          $title = 'Administration';
          $valid = '';
@@ -97,6 +96,18 @@ class BackendController{
         }
         require_once "views/back/updatepost.php";
         }
+
+      public function ignoreComment(){
+          $title = 'Administration';
+          $ignorereport = $this->commentDao->ignoreCommentReported($_GET['comment']);//id_commentaire
+          header('Location:?page=admin');
+      }
+
+    public function deleteCommentReported(){
+        $title="admin";
+        $deletecommentbyid = $this->commentDao->deleteCommentById($_GET['comment']);
+        header('Location:?page=admin');
+    }
  
 }
 
