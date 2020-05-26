@@ -88,8 +88,15 @@ class BackendController{
     //MODIFICATION D UN ARTICLE 
      public function updatePost(){
         $title = 'Administration';
+        $update = $this->postDao->getPostById($_GET['id']);
+        if(isset($_POST['title']) && !empty($_POST['title']) &&  isset($_POST['content']) && !empty($_POST['content'])  &&  isset($_POST['author']) && !empty($_POST['author'])){
+        $updatepost = $this->postDao->updatepostFromDb($_POST['title'], $_POST['content'], $_POST['author'], $_GET['id']);
+        header('Location: ?page=admin');
+        } else {                
+             
+        }
         require_once "views/back/updatepost.php";
-    }
+        }
  
 }
 

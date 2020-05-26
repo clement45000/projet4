@@ -6,6 +6,7 @@ ob_start();
         <div class="bg-dark text-light ">
             <h1 class="text-center mt-5 pt-5 ">Biographie de Jean Forteroch</h1>
             <p class="text-center pb-5">Mon histoire en quelques lignes</p>
+            <img class="simg" src="public/images/111.jpg"> 
         </div>
         <hr class="mt-5">
         <h2 class="text-center text-dark">Qui suis-je</h2>

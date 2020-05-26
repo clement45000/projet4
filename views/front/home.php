@@ -6,6 +6,7 @@ ob_start();
             <h1 class="text-center mt-5 pt-5" > Les aventures de Jean forteroch en Alaska</h1>
             <p class="text-center mt-4 pb-5 ">Je vous souhaite la bienvenue</p>
         </div>
+        <img class="simg" src="public/images/huit.jpg"> 
         <h2 class="text-center mt-5"> Derniers articles publiés</h2>
         <hr class="mt-5">
     <?php foreach ($lastPosts as $lastPost): ?>
@@ -15,7 +16,7 @@ ob_start();
                     <p class="text-muted"><?= $lastPost['content_post'] ?></p>
                     <a class="text-decoration-none" href="?page=post&id=<?=$lastPost['id_post']?>">Lire la suite</a>
                 </div> 
-            <hr class="bg-dark mb-4">
+            <hr class=" mb-4">
             <?php endforeach; ?>
         
 

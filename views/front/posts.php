@@ -6,6 +6,7 @@ ob_start();
             <h1 class="text-center mt-5 pt-5" >Retrouvez tout mes articles</h1>
             <p class="text-center mt-4 pb-5 ">Je vous souhaite une bonne lecture</p>
         </div>
+        <img class="simg" src="public/images/un.jpg"> 
         <h2 class="text-center mt-5">Retrouvez tout mes articles sur l'Alaska</h2>
         <hr class="mt-5">
         <?php foreach ($allPosts as $allPost): ?>
