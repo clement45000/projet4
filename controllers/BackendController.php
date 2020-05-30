@@ -1,23 +1,29 @@
 <?php
 require_once 'models/PostDao.php';
 require_once 'models/CommentDao.php';
+require_once 'models/MemberDao.php';
 
 class BackendController{
 
     private $postDao;
     private $commentDao;
+    private $memberDao;
 
     public function __construct(){
         $this->postDao = new PostDao();
         $this->commentDao = new CommentDao();
+        $this->memberDao = new MemberDao();
     }
 
     //AFFICHE UN TABLEAU DES ARTICLES AVEC ACTION DE BASE DU CRUD
     public function AdminHome(){
         $title = 'Administration';
-
+        if($_SESSION['acces'] === '1'){
         $allPosts = $this->postDao->getAllPosts();
         $getcommentsreported = $this->commentDao->getCommentsReported();
+        }else{
+            header('Location:?page=home');
+        }
         require_once "views/back/admin.php";
     }
 
@@ -109,6 +115,52 @@ class BackendController{
         header('Location:?page=admin');
     }
  
+
+    public function getSignUp() {
+        $title = 'Inscription';
+        require_once "views/front/signup.php";
+    }
+
+     //Authentification 
+     public function getLogIn() {
+        $title = 'connexion';
+        $errors = '';
+        $validation ='';
+        var_dump($_SESSION);
+
+
+        if(isset($_POST['pseudo']) && !empty($_POST['pseudo']) && isset($_POST['password']) && !empty($_POST['password'])){
+
+            $pseudo = htmlspecialchars($_POST['pseudo']);
+            $password = htmlspecialchars($_POST['password']);
+            $identification = $this->memberDao->userIdentification($pseudo,$password); 
+
+            $validpassword = password_verify($password, $identification['password']);
+         if(!$identification){
+             $errors ='mauvais identifiant ou mot de passe';
+         } else {
+             
+             if($validpassword) {
+                 $_SESSION['acces'] = $identification['role_user'];
+                 $_SESSION['pseudo'] = $pseudo;
+                 header('Location: ?page=admin');
+                //  echo 'vous êtes connecté !';
+            } 
+            if($_SESSION['acces'] === '1'){
+                header('Location:?page=admin');
+            }
+                if($_SESSION['acces'] === '2'){
+                    header('Location:?page=home');
+                }
+            else {
+                $errors ='mauvais identifiant ou mot de passe';
+           }
+         }
+        }
+        require_once "views/front/login.php";
+    }  
+    
+
 }
 
 ?>

@@ -63,20 +63,6 @@ class FrontendController{
         require_once "views/front/contact.php";
     }
 
-
-    
-    public function getSignUp() {
-        $title = 'Inscription';
-        require_once "views/front/signup.php";
-    }
-
-       
-    public function getLogIn() {
-        $title = 'Connexion';
-        require_once "views/front/login.php";
-    }
-
-
 }
 
 ?>

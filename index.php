@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once "controllers/FrontendController.php";
 require_once "controllers/BackendController.php";
 $frontController = new FrontendController();
@@ -18,9 +19,11 @@ $backController = new BackendController();
                 break;
                 case "contact": $frontController->getContact(); // formulaire de contact front
                 break;
-                case "signup": $frontController->getSignUp(); //Inscription front
+                case "signup": $backController->getSignUp(); //Inscription front
                 break;
-                case "login": $frontController->getLogIn(); // Connexion front
+                case "login": $backController->getLogIn(); // Connexion front
+                break;
+                case "logout": $backController->getLogout(); // deonnexion front
                 break;
                 case "comment": $frontController->addComment(); // Ajouter un commentaire
                 break;
