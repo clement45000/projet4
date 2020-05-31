@@ -16,10 +16,6 @@ ob_start();
                     <input type="email" name="mail" id="mail" class="form-control" placeholder= "nom@exemple.com" required>
                 </div>
                 <div class="form-group">
-                    <label for="mail">Confirmez votre email</label>
-                    <input type="email" name="mail" id="mail" class="form-control" placeholder= "nom@exemple.com" required>
-                </div>
-                <div class="form-group">
                     <label for="password">Mot de passe</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder= "mot de passe" required>
                 </div>

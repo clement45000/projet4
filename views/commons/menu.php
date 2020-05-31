@@ -17,11 +17,22 @@
                 <li class="nav-item">
                     <a class="nav-link  text-light" href="?page=contact">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link  text-light" href="?page=admin">Admin</a>
-                </li>
-            </ul>
-            <a class="nav-link text-light" href="?page=login">Connexion</a>
-            <a class="nav-link text-light pr-5" href="?page=signup">Inscription</a>
+            </ul>      
+           
+              <?php if(isset($_SESSION['acces']) && $_SESSION['acces'] === "1"){ ?>
+                    <a href="?page=admin" class="nav-link text-light">Admin home</a>
+                    <a href="?page=logout" class="nav-link text-light">Déconnexion</a>
+             <?php } elseif(isset($_SESSION['acces']) && $_SESSION['acces'] === "2") { ?>
+                   <a href="?page=logout" class="nav-link text-light">Déconnexion</a> 
+             <?php }else{ ?>
+                    <a href="?page=signup" class="nav-link text-light">Inscription</a>
+                   <a href="?page=login" class="nav-link text-light">Connexion</a>
+             <?php } ?>
+            
         </div>
+
     </nav>
+              
+                
+                
+          
