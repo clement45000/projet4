@@ -4,7 +4,7 @@ ob_start();
 
 
 <div class="container">
-<p>Vous devez remplir tous les champs</p>
+<p>Votre commentaire à bien été ajouté</p>
 </div>
 
 

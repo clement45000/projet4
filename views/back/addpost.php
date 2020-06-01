@@ -23,10 +23,6 @@ ob_start();
             <input type="text" name="title" id="title" class="form-control" placeholder= "Entrez votre titre" value="<?= $title_art ?>" >
         </div>
         <div class="form-group">
-            <label for="date">Date</label>
-            <input type="date" name="date" id="datepost" class="form-control" placeholder= "Entrez la date du jour" value="<?= $date_art ?>">
-        </div>
-        <div class="form-group">
             <label for="content">Contenu de l'article</label>
             <textarea class="form-control" id="content" name="content"  placeholder= "Ecrivez votre article"><?= $content_art ?></textarea>
         </div>

@@ -40,9 +40,7 @@ class BackendController{
         require_once "views/back/postadmin.php";
     }
 
-
     //SUPPRIMER UN ARTCILE ET SES COMMENTAIRE ASSOCIES
-    // btn supprimer dans admin
     public function deletePost(){
         $title = 'Administration';
         if($_SESSION['acces'] !== '1'){
@@ -69,7 +67,6 @@ class BackendController{
         }
         require_once "views/back/deletecomment.php";
     }
-
 
     //CREER UN ARTICLE
     public function createPost(){
@@ -107,6 +104,7 @@ class BackendController{
      }
 
     //MODIFICATION D UN ARTICLE 
+    
      public function updatePost(){
         $title = 'Administration';
         if($_SESSION['acces'] !== '1'){
@@ -131,6 +129,7 @@ class BackendController{
         $ignorereport = $this->commentDao->ignoreCommentReported($_GET['comment']);//id_commentaire
         header('Location:?page=admin');
       }
+
     // SUPPRIMER UN COMMENTAIRE REPORTE
     public function deleteCommentReported(){
         $title="admin";
@@ -182,6 +181,7 @@ class BackendController{
         } 
         require_once "views/front/login.php";
     }  
+
     //DECONNEXION
     public function getLogout(){
         session_destroy();
@@ -189,65 +189,63 @@ class BackendController{
     }
 
 
-    //INSCRIPTION
-    public function getSignUp(){
-        $title ='inscription';
-        $pseudoinvalide = '';
-        $errorsperso = '';
-        $validate = '';
-        $mdpinvalid = '';
-        $mailuse = '';
-        $pseudovalue= '';
-        $mailvalue= '';
-       //Verifie si le pseudo existe
-     
-        if(!empty($_POST)){// verifie ques des données ont été posté
-             $errors = array();
- 
-             if(empty($_POST['pseudo']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['pseudo'])) { //si la champs pseudo est vide
-                 $pseudoinvalide ='Le pseudo est invalide';
-                 $errors['pseudo'] = "pseudo non valide";
-             } else {
-                 $pseudo = ($_POST['pseudo']); 
-                 $pseudoverification = $this->memberDao->pseudoVerification($pseudo); 
-                 if($pseudoverification){
-                     $errors['pseudo'] = 'Ce pseudo est déjà pris';
-                     $pseudoinvalide ='Ce pseudo est déjà utilisé';
-                 }
-             }
-             //si champs mail  vide
-             if(empty($_POST['mail'])){
-                 $mailuse ='Veuillez ecrire une adresse';
-                 $errors['mail'] = "Veuillez écrire une adresse";
-             } else{
-                 $mail = ($_POST['mail']); 
-                 $mailverification = $this->memberDao->emailVerification($mail);
-                 if($mailverification){
-                     $errors['mail'] = 'Adresse mail déjà attribué';
-                     $mailuse = 'Adresse mail déjà utilisé';
-                 }
-             }
-             //si les mot de passe sont différent
-             if(empty($_POST['password']) || $_POST['password'] != $_POST['passwordconfirm']){
-                 $mdpinvalid ='Mot de passe incorrect | les deux mots de passe doivent correspondre |';
-                 $errors['password'] = "vous devez entrez un mot de pass valide";
-             }
-             if(empty($errors)){
-                 $pseudo = ($_POST['pseudo']);
-                 $password = ($_POST['password']);
-                 $mail = ($_POST['mail']);
-                 $pass_hash = password_hash(($_POST['password']), PASSWORD_DEFAULT);
-                 $addmember = $this->memberDao->userSignUp($pseudo,$pass_hash,$mail);//insertion du membre req insert into
-                 $validate = 'Votre compte a bien été créé';
-             }
-              
-             $pseudovalue = ($_POST['pseudo']);
-             $mailvalue = ($_POST['mail']);
- 
-        }        
-         require_once "views/front/signup.php";
-     }
-     
+     //INSCRIPTION
+     public function getSignUp(){
+       $title ='inscription';
+       $pseudoinvalide = '';
+       $errorsperso = '';
+       $validate = '';
+       $mdpinvalid = '';
+       $mailuse = '';
+       $pseudovalue= '';
+       $mailvalue= '';
+      //Verifie si le pseudo existe
+    
+       if(!empty($_POST)){// verifie ques des données ont été posté
+            $errors = array();
 
-} 
-?>
+            if(empty($_POST['pseudo']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['pseudo'])) { //si la champs pseudo est vide
+                $pseudoinvalide ='Le pseudo est invalide';
+                $errors['pseudo'] = "pseudo non valide";
+            } else {
+                $pseudo = ($_POST['pseudo']); 
+                $pseudoverification = $this->memberDao->pseudoVerification($pseudo); 
+                if($pseudoverification){
+                    $errors['pseudo'] = 'Ce pseudo est déjà pris';
+                    $pseudoinvalide ='Ce pseudo est déjà utilisé';
+                }
+            }
+            //si champs mail  vide
+            if(empty($_POST['mail'])){
+                $mailuse ='Veuillez ecrire une adresse';
+                $errors['mail'] = "Veuillez écrire une adresse";
+            } else{
+                $mail = ($_POST['mail']); 
+                $mailverification = $this->memberDao->emailVerification($mail);
+                if($mailverification){
+                    $errors['mail'] = 'Adresse mail déjà attribué';
+                    $mailuse = 'Adresse mail déjà utilisé';
+                }
+            }
+            //si les mot de passe sont différent
+            if(empty($_POST['password']) || $_POST['password'] != $_POST['passwordconfirm']){
+                $mdpinvalid ='Mot de passe incorrect';
+                $errors['password'] = "vous devez entrez un mot de pass valide";
+            }
+            if(empty($errors)){
+                $pseudo = ($_POST['pseudo']);
+                $password = ($_POST['password']);
+                $mail = ($_POST['mail']);
+                $pass_hash = password_hash(($_POST['password']), PASSWORD_DEFAULT);
+                $addmember = $this->memberDao->userSignUp($pseudo,$pass_hash,$mail);//insertion du membre req insert into
+                $validate = 'Votre compte a bien été créé';
+            }
+             
+            $pseudovalue = ($_POST['pseudo']);
+            $mailvalue = ($_POST['mail']);
+
+       }        
+        require_once "views/front/signup.php";
+    }
+}
+?> 
