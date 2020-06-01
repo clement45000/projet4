@@ -179,9 +179,7 @@ class BackendController{
         }else{
             $errors = 'Vous devez remplir tous les champs';
         }
-          
         } 
-        
         require_once "views/front/login.php";
     }  
     //DECONNEXION
@@ -193,9 +191,20 @@ class BackendController{
 
     //INSCRIPTION
     public function getSignUp(){
-        $title = 'inscription';
+        $title ='inscription';
+       
+        if(!empty($_POST)){
+             if(!empty($_POST['pseudo']) && !empty($_POST['password']) && !empty($_POST['mail'])){
+                $pseudo = ($_POST['pseudo']);
+                $password = ($_POST['password']);
+                $mail = ($_POST['mail']);
+                $pass_hash = password_hash(($_POST['password']), PASSWORD_DEFAULT);
+                var_dump($pass_hash);
+                $addmember = $this->memberDao->userSignUp($pseudo,$pass_hash,$mail);
+            }
+        }
         require_once "views/front/signup.php";
-    }  
+    }
      
 
 } 
