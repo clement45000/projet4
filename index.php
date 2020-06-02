@@ -5,13 +5,13 @@ require_once "controllers/BackendController.php";
 $frontController = new FrontendController();
 $backController = new BackendController();
 
-
-    if(isset($_GET['page']) && !empty($_GET['page'])){
+try{
+    if(!empty($_GET['page'])){
         $url = htmlspecialchars($_GET['page']);
             switch ($url){
                 case "home": $frontController->getHome();//Accueil avec les 6 derniers articles front
                 break;
-                case "post": $frontController->getPost();// Article en particulier front
+                case "post": $frontController->getPostAndComment();// Article en particulier front
                 break;
                 case "biographie": $frontController->getBiographie(); // Biographie front
                 break;
@@ -25,8 +25,8 @@ $backController = new BackendController();
                 break;
                 case "logout": $backController->getLogout(); // deonnexion front
                 break;
-                case "comment": $frontController->addComment(); // Ajouter un commentaire
-                break;
+                // case "comment": $frontController->addComment(); // Ajouter un commentaire
+                // break;
                 case "reportcomment": $frontController->reportComment(); // Signalé un commentaire
                 break;
                 case "deletecomment": $backController->deleteComment(); //Supprimer un Commentaire
@@ -46,9 +46,15 @@ $backController = new BackendController();
                 case "validation": $backController->validate(); //Confirmation de suppresion d'un commentaire
                 break;
                 case "postadmin": $backController->postAdmin(); //Affiche un article et ses commentaires
-                break; 
-               
+                break;  
+                case "error404":
+                default : throw new Exception("la page n'existe pas erreur 404");
             }
         } else {
             $frontController->getHome();
-}
+        }
+    }catch(Exception $e){ //si exception attrapé on redirige vers notre view error
+    $title = "Error";
+    $errorMessage = $e->getMessage();
+    require 'views/commons/errorview.php';
+    }

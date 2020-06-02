@@ -11,7 +11,10 @@ class PostDao extends Model{
     public function getPostById($idpost){
         $postById = $this->getPdoConnexion()->prepare('select id_post, title_post, content_post, author_post, DATE_FORMAT(date_post, \'%d/%m/%Y\') AS date_post from posts where id_post=?');
         $postById->execute(array($idpost));
+        if($postById->rowcount() == 1)
         return $postById->fetch(); //On va chercher une seul colonne celle ou l'id correspon à la var passé en param
+        else
+        throw new Exception("Désolé Aucun article ne correspond à cette demande");
     }
 
     public function getAllPosts(){
