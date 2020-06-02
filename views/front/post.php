@@ -1,7 +1,7 @@
 <?php
 ob_start();
 ?>
- <?php if($commentadd !== ""){ ?><div class="alert alert-success text-center" role="alert"><?= htmlspecialchars($commentadd)?></div><?php } ?>
+ <?php if($validcomment !== ""){ ?><div class="alert alert-success text-center" role="alert"><?= htmlspecialchars($validcomment)?></div><?php } ?>
 <?= $postById['id_post'] ?>
     <div class="container">
         <div class="border border-bg-dark mt-5 mb-5 pl-5 pr-5 shadow p-3 mb-5  bg-white rounded">
@@ -32,10 +32,14 @@ ob_start();
     <?php if(isset($_SESSION['acces']) && $_SESSION['acces'] === "2" || isset($_SESSION['acces']) && $_SESSION['acces'] === "1" ){ ?>
         <div class="shadow p-3 mb-5">
             <p class="bg-dark text-light text-center  pt-2 pb-2">Laissez un commentaire</p>  
-            <form class="" action="?page=comment" method="post">
+    <?php if($invalid !== ""){ ?><div class="alert alert-danger text-center" role="alert"><?= htmlspecialchars($invalid)?></div><?php } ?>
+
+ 
+
+            <form class="" id="test" action="?page=comment&id=<?=$postById['id_post']?>" method="post">
                 <div class="form-group col-6">
                     <label for="pseudo">Votre pseudo</label>
-                    <input type="text" name="pseudo" id="pseudo" class="form-control"  placeholder= "Entrez votre pseudo..." >
+                    <input type="text" name="pseudo" id="pseudo" class="form-control"  placeholder= "Entrez votre pseudo..." value="<?= $pseudoform ?>">
                 </div>
                 <div class="form-group col-12">
                     <label for="message">Message</label>

@@ -11,7 +11,7 @@ try{
             switch ($url){
                 case "home": $frontController->getHome();//Accueil avec les 6 derniers articles front
                 break;
-                case "post": $frontController->getPostAndComment();// Article en particulier front
+                case "post": $frontController->getPostAndComment();// Article en particulier avec ses commentaires front
                 break;
                 case "biographie": $frontController->getBiographie(); // Biographie front
                 break;
@@ -25,8 +25,10 @@ try{
                 break;
                 case "logout": $backController->getLogout(); // deonnexion front
                 break;
-                // case "comment": $frontController->addComment(); // Ajouter un commentaire
-                // break;
+                case "comment": $frontController->addComment(); // Ajouter un commentaire
+                break;
+                case "commentadd": $frontController->commentIsAdd(); // Ajouter un commentaire
+                break;
                 case "reportcomment": $frontController->reportComment(); // Signalé un commentaire
                 break;
                 case "deletecomment": $backController->deleteComment(); //Supprimer un Commentaire
