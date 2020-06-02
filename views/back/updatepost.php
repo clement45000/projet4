@@ -18,11 +18,6 @@ ob_start();
                 <textarea class="form-control" id="content" name="content" ><?= $update['content_post']?></textarea>
             </div>
 
-            <div class="form-group">
-                <label for="Auteur">Auteur</label>
-                <input type="text" name="author" id="title" class="form-control" value="<?= $update['author_post']?>">
-            </div>
-
             <button type="submit" class="btn btn-primary">Publier votre article</button>
             </form>
         </div>

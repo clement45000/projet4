@@ -8,15 +8,9 @@ ob_start();
 <div class="container mt-5">
 
 <h1 class="text-center mt-5 ">Ajouter un article</h1>
-
-<?php if ($unvalid): ?>
-<div class="alert alert-danger">
-<?= $unvalid ?>
-</div>
-<?php endif ?>
-
-
-
+<?php if($unvalid !== ""){ ?> <div class="alert alert-danger text-center mt-5" role="alert"> <?= htmlspecialchars($unvalid)?> </div> <?php } ?>
+<?php if($validpost !== ""){ ?> <div class="alert alert-success text-center mt-5" role="alert"> <?= htmlspecialchars($validpost)?> </div> <?php } ?>      
+        
     <form action="?page=createpost" method="post">
         <div class="form-group">
             <label for="Titre">Titre</label>

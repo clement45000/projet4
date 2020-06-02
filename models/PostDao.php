@@ -40,7 +40,7 @@ class PostDao extends Model{
     }
 
     public function updatepostFromDb($title, $content, $author, $postid){
-        $updatepost = $this->getPdoConnexion()->prepare('UPDATE posts SET title_post= ?, content_post = ?, author_post= ?, date_post = NOW() WHERE id_post= ?');
+        $updatepost = $this->getPdoConnexion()->prepare('UPDATE posts SET title_post= ?, content_post = ?, author_post= ?  WHERE id_post= ?');
         $updatepost->execute(array($_POST['title'], $_POST['content'], $_POST['author'], $_GET['id']));
         return $updatepost;
     }

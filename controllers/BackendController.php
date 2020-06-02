@@ -35,8 +35,13 @@ class BackendController{
         if($_SESSION['acces'] !== '1'){
             header('Location:?page=home');
         }
-        $postById = $this->postDao->getPostById($_GET['id']); //on recupere l'id et on affiche l'article (affichage)
+        //Pour l'expetion l'id doit exister 
+        if(isset($_GET['id']) && ($_GET['id']) >0){
+        $postById = $this->postDao->getPostById($_GET['id']); //on recupere l'id et on affiche l'article (affichage) 
         $commentsById = $this->commentDao->getCommentsById($_GET['id']); // on recupere l'id et on affiche les com liées à l'article (affichage)
+        } else {
+        throw new Exception("Cette page n'existe pas");
+    }
         require_once "views/back/postadmin.php";
     }
 
@@ -74,52 +79,55 @@ class BackendController{
         if($_SESSION['acces'] !== '1'){
             header('Location:?page=home');
         }
-        $valid = '';
         $unvalid ='';
         $title_art='';
-        $date_art='';
         $content_art='';
         $author_art='';
+        $validpost='';
 
-        if(isset($_POST['title'], $_POST['date'], $_POST['content'], $_POST['author'])){
-            if(!empty($_POST['title']) AND !empty($_POST['date']) AND !empty($_POST['content']) AND !empty($_POST['author'])){
-
+    if(!empty($_POST)){    
+        if(!empty($_POST['title']) AND !empty($_POST['content']) AND !empty($_POST['author'])){
             $post_title = htmlspecialchars($_POST['title']);
-            $post_date = htmlspecialchars($_POST['date']);
             $post_content = htmlspecialchars($_POST['content']);
             $post_author = htmlspecialchars($_POST['author']);
             //  $resultat = $this->postDao-> createPostdb($_POST['title'],$_POST['date'],$_POST['content'],$_POST['author']); 
-             $resultat = $this->postDao-> createPostdb($post_title,$post_date,$post_content,$post_author); 
-             header('Location: ?page=admin');
-            }else {
-                $unvalid = 'Veuillez remplir tous les champs';
-                $title_art = ($_POST['title']);
-                $date_art = ($_POST['date']);
-                $content_art = ($_POST['content']);
-                $author_art = ($_POST['author']);
-            }
-
-        }
+             $resultat = $this->postDao-> createPostdb($post_title,$post_content,$post_author); 
+        }else{
+            $title_art=($_POST['title']);;
+            $content_art=($_POST['content']);;
+            $author_art=($_POST['author']);;
+            $unvalid ='Tous les champs doivent être remplis';
+        }   
+        $validpost ='Votre article a bien été posté';
+    }
          require_once "views/back/addpost.php";
      }
 
     //MODIFICATION D UN ARTICLE 
     
-     public function updatePost(){
+    public function updatePost(){
         $title = 'Administration';
+
         if($_SESSION['acces'] !== '1'){
             header('Location:?page=home');
         }
-        $update = $this->postDao->getPostById($_GET['id']);
-        if(isset($_POST['title']) && !empty($_POST['title']) &&  isset($_POST['content']) && !empty($_POST['content'])  &&  isset($_POST['author']) && !empty($_POST['author'])){
-        $updatepost = $this->postDao->updatepostFromDb($_POST['title'], $_POST['content'], $_POST['author'], $_GET['id']);
-        header('Location: ?page=admin');
-        } else {                
-             
-        }
-        require_once "views/back/updatepost.php";
-        }
+            if(isset($_GET['id']) && ($_GET['id']) >0){
+                $update = $this->postDao->getPostById($_GET['id']); //Methode qui récupère l'id pour affiche la news
+                if(!empty($_POST['title']) && !empty($_POST['content'])  && !empty($_POST['author'])){
+                $updatepost = $this->postDao->updatepostFromDb($_POST['title'], $_POST['content'], $_POST['author'], $_GET['id']); //Methode qui modifi la news
+                header('Location: ?page=admin');
+                } 
+            } else{
+                throw new Exception("Cette page n'existe pas");
+            }    
+            require_once "views/back/updatepost.php";
+    }
     
+
+
+
+
+
     //IGNORE UN COMMENTAIRE REPORTE
     public function ignoreComment(){
         $title = 'Administration';

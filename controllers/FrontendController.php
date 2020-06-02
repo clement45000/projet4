@@ -46,11 +46,12 @@ class FrontendController{
         $validcomment ='';
         $pseudoform ='';
         $invalid ='';
-        $postById = $this->postDao->getPostById($_GET['id']); 
-        $commentsById = $this->commentDao->getCommentsById($_GET['id']);
+        //$jojo = isset($_GET['id']);
+
+        $postById = $this->postDao->getPostById(isset($_GET['id'])); 
+        //$commentsById = $this->commentDao->getCommentsById($_GET['id']);
 
         if(!empty($_POST)){ //Si le form est remplit et les information envoyé
-          
                 if(!empty($_POST['pseudo']) && !empty($_POST['content'])){ //si les champs ne sont pas vides
                     //ajoute le commentaire
                     $comment_title = htmlspecialchars($_POST['pseudo']); 
@@ -78,7 +79,7 @@ class FrontendController{
      //SIGNALER UN COMMENTAIRE
     public function reportComment(){
         $title = 'Jean Forteroch';
-        $report = $this->commentDao->updateCommentForReporte($_GET['id']);//id_commentaire
+        $report = $this->commentDao->updateCommentForReporte(isset($_GET['id']));//id_commentaire
         require_once "views/front/reportcomment.php";
     }
 
