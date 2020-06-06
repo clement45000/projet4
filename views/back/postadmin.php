@@ -2,13 +2,15 @@
 ob_start();
 ?>
 <a href="?page=admin" class="btn btn-primary mt-5 ml-5">Retour Accueil admin</a>
-    <div class="container">
-        <div class="border border-bg-dark mt-5 mb-5 pl-5 pr-5 shadow p-3 mb-5  bg-white rounded">
+    <div id="container_adminpost" class="container ">
+        <div id="testpadd" class="border border-bg-dark mt-5 mb-5 pl-5 pr-5 shadow p-3 mb-5  bg-white rounded">
             <div class="bg-dark text-light" >
                 <h1 class="text-center pt-5 mt-5 mb-5"><?= $postById['title_post'] ?></h1>
                 <p class ="text-center mt-4 pb-5"> Publié le : <?=$postById['date_post'] ?>  </p>
             </div>
-                <p class ="text-center text-muted mt-5 mb-5"><?= $postById['content_post'] ?>  </p>
+        </div>
+        <div class="bg-light text-muted p-2">
+        <p class ="text-center text-muted mt-5 mb-5"><?= $postById['content_post'] ?>  </p>
                 <p class ="text-center">Ecrit par : <?= $postById['author_post'] ?>  </p>
         </div>
 
@@ -50,5 +52,8 @@ ob_start();
 $content = ob_get_clean();
 require "views/commons/template.php";
 ?>
+
+
+
 
 

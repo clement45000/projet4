@@ -6,7 +6,7 @@ class CommentDao extends Model {
     public function getCommentsById($idpost) {                                                
         $commentsById = $this->getPdoConnexion()->prepare('select id_comment, pseudo_comment, content_comment, DATE_FORMAT(date_comment, \'%d/%m/%Y\') AS date_comment, post_id from comments where post_id=?');
         $commentsById->execute(array($idpost));
-        return $commentsById; 
+        return $commentsById->fetchAll(); 
     }
 
     //Supprimer un commentaire par son id

@@ -2,9 +2,9 @@
 ob_start();
 ?>
  
-    <div class="container  shadow p-3 mb-5 mt-5 pl-5 pr-5 pt-5 pb-5 bg-white ">
+    <div id="container_signup" class="container  shadow p-3 mb-5 mt-5 pl-5 pr-5 pt-5 pb-5 bg-white ">
         <div class="bg-dark text-light">
-            <h1 class="text-center pt-4 pb-4 mb-5 "> Inscrivez-vous</h1>
+            <h1 id="title_signup" class="text-center pt-4 pb-4 mb-5 "> Inscrivez-vous</h1>
            
     
     <?php if($validate !== ""){ ?><div class="alert alert-success text-center" role="alert"><?= htmlspecialchars($validate)?></div><?php } ?>
@@ -16,7 +16,8 @@ ob_start();
         </div>
             <form action="?page=signup" method="post" >
                 <div class="form-group">
-                    <label for="nom">Pseusdo</label> <?php if($pseudoinvalide !== ""){ ?><span class="text-danger"><?= htmlspecialchars($pseudoinvalide)?></sapn><?php } ?>
+                    <label for="nom">Pseusdo</label> 
+                    <?php if($pseudoinvalide !== ""){ ?><span class="text-danger"><?= htmlspecialchars($pseudoinvalide)?></sapn><?php } ?>
                     <input type="text" name="pseudo" id="pseudo" class="form-control" placeholder= "Entrez un pseudo" value='<?=$pseudovalue?>'>
                 </div>
 

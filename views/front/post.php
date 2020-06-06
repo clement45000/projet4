@@ -3,13 +3,14 @@ ob_start();
 ?>
  <?php if($validcomment !== ""){ ?><div class="alert alert-success text-center" role="alert"><?= htmlspecialchars($validcomment)?></div><?php } ?>
 <?= $postById['id_post'] ?>
-    <div class="container">
-        <div class="border border-bg-dark mt-5 mb-5 pl-5 pr-5 shadow p-3 mb-5  bg-white rounded">
+    <div id="container_postbyid" class="container">
+        <div id="post_paddingsize" class="border border-bg-dark mt-5 mb-5 pl-5 pr-5 shadow p-3 mb-5  bg-white rounded">
             <div class="bg-dark text-light" >
-                <h1 class="text-center pt-5 mt-5 mb-5"><?=htmlspecialchars($postById['title_post'])?></h1>
+                <h1 id="firsttitle_post" class="text-center pt-5 mt-5 mb-5"><?=htmlspecialchars($postById['title_post'])?></h1>
+                <img id="img_post" class="simg" src="public/images/deux.jpg"> 
                 <p class ="text-center mt-4 pb-5"> Publié le : <?=htmlspecialchars($postById['date_post'])?>  </p>
             </div>
-                <p class ="text-center text-muted mt-5 mb-5"><?=htmlspecialchars($postById['content_post'])?>  </p>
+                <p class ="text-center text-muted mt-5 mb-5"><?=($postById['content_post'])?>  </p>
                 <p class ="text-center">Ecrit par : <?=htmlspecialchars($postById['author_post'])?>  </p>
         </div>
 
@@ -21,8 +22,10 @@ ob_start();
                     <p class="mt-2 ml-2 mb-0"><strong><?=htmlspecialchars($commentById['pseudo_comment'])?></strong> à écrit le <?=htmlspecialchars($commentById['date_comment'])?></p>
                     <p class="mt-0 mb-0 ml-2"><?=htmlspecialchars($commentById['content_comment'])?></p> 
                     <?php if(isset($_SESSION['acces']) && $_SESSION['acces'] === "2"){ ?>
-                    <form method="POST" action="?page=reportcomment&id=<?=htmlspecialchars($commentById['id_comment'])?>" onSubmit="return confirm ('voulez-vous vraiment signaler ce commentaire ?');">
+                    <!-- action va traiter le formulaire via la fonction-->
+                    <form method="POST" action="?page=reportcomment&idjojo=<?=$commentById['id_comment']?>" onSubmit="return confirm ('voulez-vous vraiment signaler ce commentaire ?');">
                             <button class="btn btn-link" type="submit">signaler le commentaire</button>
+                            <?=$commentById['id_comment']?> 
                     </form>
                     <?php } ?>   
                    <!-- <a href="?page=jojo&id=< class="ml-2 pt-0">Signaler le commentaires</a>-->
@@ -66,6 +69,9 @@ ob_start();
 $content = ob_get_clean();
 require "views/commons/template.php";
 ?>
+
+
+
 
 
 

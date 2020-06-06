@@ -15,10 +15,15 @@ ob_start();
 
             <div class="form-group">
                 <label for="content">Contenu de l'article</label>
-                <textarea class="form-control" id="content" name="content" ><?= $update['content_post']?></textarea>
+                <textarea class="form-control" id="tinymce" name="content" ><?= $update['content_post']?></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Publier votre article</button>
+            <div class="form-group">
+                <label for="Auteur">Auteur</label>
+                <input type="text" name="author" id="auteur" class="form-control" value="<?= $update['author_post']?>">
+            </div>
+
+            <button type="submit" class="btn btn-primary mb-5">Publier votre article</button>
             </form>
         </div>
 

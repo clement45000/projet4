@@ -29,7 +29,7 @@ try{
                 break;
                 case "commentadd": $frontController->commentIsAdd(); // Ajouter un commentaire
                 break;
-                case "reportcomment": $frontController->reportComment(); // Signalé un commentaire
+                case "reportcomment": $frontController->reportComment(); // SIGNALER UN COMMENTAIRE
                 break;
                 case "deletecomment": $backController->deleteComment(); //Supprimer un Commentaire
                 break;

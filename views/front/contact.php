@@ -3,9 +3,9 @@ ob_start();
 ?>
 
 
-    <div class="container mt-5 pl-5 pr-5 pt-5 bg-white shadow p-3 mb-5 ">
-    <div class="bg-dark text-light">   
-    <h1 class="text-center pt-4 pb-4 mb-5"> Contactez-moi</h1>
+    <div id="container_contact" class="container mt-5 pl-5 pr-5 pt-5 bg-white shadow p-3 mb-5 ">
+    <div id="bakcground_title" class="bg-dark text-light">   
+    <h1 id="title_contact" class="text-center pt-4 pb-4 mb-5"> Contactez-moi</h1>
     </div>
     
             <form>

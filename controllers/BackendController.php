@@ -88,7 +88,7 @@ class BackendController{
     if(!empty($_POST)){    
         if(!empty($_POST['title']) AND !empty($_POST['content']) AND !empty($_POST['author'])){
             $post_title = htmlspecialchars($_POST['title']);
-            $post_content = htmlspecialchars($_POST['content']);
+            $post_content =($_POST['content']);
             $post_author = htmlspecialchars($_POST['author']);
             //  $resultat = $this->postDao-> createPostdb($_POST['title'],$_POST['date'],$_POST['content'],$_POST['author']); 
              $resultat = $this->postDao-> createPostdb($post_title,$post_content,$post_author); 
@@ -224,7 +224,8 @@ class BackendController{
                 }
             }
             //si champs mail  vide
-            if(empty($_POST['mail'])){
+       //     if(empty($_POST['mail']) || filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+            if(empty($_POST['mail']) || !filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)){
                 $mailuse ='Veuillez ecrire une adresse';
                 $errors['mail'] = "Veuillez écrire une adresse";
             } else{
