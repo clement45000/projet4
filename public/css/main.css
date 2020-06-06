@@ -1,10 +1,241 @@
- body{
-    background-color: rgb(192, 213, 240); 
-    background-image: url("../images/black-linen.png");
+body{
+    background-color: rgb(5, 23, 49); 
+    background-image: url("../images/shattered.png");
 } 
 
 .simg{
     height: 300px;
     width: 100%;
+}
+
+@media all and  (max-width: 762px){
+
+    /*adminhome*/
+    /*Array post*/
+    
+
+    #first_title{
+     font-size: 1.5em;
+    }
+   
+    /*Array comments repport*/
+
+    #second_title{
+        font-size: 1.5em;
+    }
+
+    #title_comarray{
+        display:none;
+    }
+
+    #pseudo_arraycontent{
+        display:none;
+    }
+
+    #date{
+        display:none;
+    }
+
+    #datecommentaire{
+        display:none;
+    }
+    
+    #datepost{
+        display:none;
+    }
+
+    #datecommentaire{
+        display:none;
+    }
+
+
+}
+
+@media all and  (max-width: 432px){
+
+    /* ------ FRONTEND ------ */
+
+    /*-- HOME -- */
+    #container_home{
+        padding: 0px !important;
+    }
+
+    #title_home{
+        font-size: 1.5em;
+    }
+
+    #imgheader{
+        height: 100px;
+    }
+
+    #second_title{
+        font-size: 1.2em;
+    }
+
+    #last_posts{
+        margin-top:1px !important;
+        margin-bottom:2px !important;
+    }
+
+    #title_post{
+        font-size: 1.4em;
+    }
+
+
+    #date_posthome{
+        font-size: 0.9em;
+        margin-bottom:2px !important;
+    }
+
+    /* POST BY ID */
+    #img_post{
+        height: 120px;
+    }
+
+    #container_postbyid{
+        padding: 0px !important;
+    }
+
+    #post_paddingsize{
+        padding: 20px !important;
+    }
+
+    #firsttitle_post{
+        font-size: 1.5em;
+    }
+    /* -- TOUS LES ARTICLES -- */
+
+    #container_allpost{
+        padding: 0px !important;
+    }
+    
+    #title_allposts{
+        font-size: 1.5em;
+    }
+
+    #imgheaderallposts{
+        height: 100px;
+    }
+
+    #secondtitle_allposts{
+        font-size: 1.2em;
+    }
+
+    #lastposts_fromallposts{
+        margin-top:1px !important;
+        margin-bottom:2px !important;
+    }
+
+    #titlepost_fromallposts{
+        font-size: 1.4em;
+    }
+
+    #date_fromallposts{
+        font-size: 0.9em;
+    }
+
+    /* -- BIOGRAPHIE -- */
+    #container_biographie{
+        padding: 3px !important;
+    }
+
+    #text_biographie{
+        padding: 20px;
+    }
+
+
+    #title_biographie{
+        font-size: 1.5em;
+    }
+
+    #imgbiographie{
+        height: 150px;
+    }
+
+    /* --- CONTACT --- */
+    #title_contact{
+        font-size:1.5em;
+    }
+
+    /* ---- SIGN UP ---- */
+    #container_signup{
+        padding: 30px !important;
+    }
+
+    #title_signup{
+        font-size: 1.5em;
+    }
+
+    /* ---- LOG IN ---- */
+     #container_login{
+        padding: 30px !important;
+     }
+
+     #title_login{
+        font-size: 1.5em;
+    }
+
+
+    /* ---- BACKEND ---- */
+
+        /* -- ADMIN HOME  -- */
+        /*Array posts*/
+    #container_firstarray{
+        padding:  0rem !important;
+    }
+
+    #hr_biographie{
+        display: none;
+    }
+
+    #second_titlebiographie{
+        padding-top: 30px !important;
+        font-size: 1.5em;
+    }
+
+
+    #link_update{
+        padding:4px !important;
+        font-size: 0.8em; 
+    }
+
+    #btn_delete{
+        padding:3px;
+        font-size: 0.8em; 
+    }
+
+    #bakcground_title{
+        padding-left: 0px !important;
+    }
+
+        /*adminhome*/
+        /*Array comments*/
+
+    #container_secondarray{
+        padding:  0rem !important;
+    }
+
+    #ignore_com{
+        padding:3px;
+        font-size: 0.8em; 
+    }
+
+    #delete_com {
+        padding:3px;
+        font-size: 0.8em; 
+    }
+
+    /* -- ADMIN POST AFFICHAGE -- */
+
+    #container_adminpost{
+        padding:  0rem !important;
+    }
+
+    #testpadd{
+        padding: 0px !important;
+        background: red !important;
+        border: none !important;
+       box-shadow: none !important;
+    }
 
 }
