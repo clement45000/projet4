@@ -1,8 +1,11 @@
 <?php
 ob_start();
 ?>
-        <div id="container_firstarray" class="container shadow p-3 mb-5 rounded border border-bg-dark bg-white  mt-5 mb-5 pl-5 pr-5 ">
-            <h1 class="text-center mt-5" id="first_title" > Bienvenue sur l'administration du site</h1>
+        <div class="container shadow p-3 mb-5 rounded border border-bg-dark bg-white  mt-5 mb-5 pl-5 pr-5 ">
+            <p class="text-center mt-3 h1" id="first_title" > Bienvenue sur l'administration du site</p>
+        </div>
+        <div id="container_firstarray" class="container shadow p-3 mb-5 rounded border border-bg-dark bg-white  mt-5 mb-5 pl-5 pr-5 " >
+            <p id="gestion_post" class="text-center mt-5 h2" > Gestion des articles</p>
             <table id="first_array" class="table text-center  mt-5">
             <thead class="thead-dark">
                 <tr class="" id="test">
@@ -32,9 +35,14 @@ ob_start();
             <hr class='mt-5 pt-2'>
         </div>
 
+        <div class="container bg-white text-center">
+        <p id="gestion_bio" class="h2 text-center pt-5"> Gestion de la biographie</p>
+          <a href="?page=updatebio" class="btn btn-primary mt-4 mb-5"> Modifiez votre biographie</a>
+        </div>
+
 
         <div class="container shadow p-3 mb-5 rounded border border-bg-dark bg-white  mt-5 mb-5 pl-5 pr-5" id="container_secondarray">
-            <h2 class="text-center mt-5" id="second_title" >Commentaires signalés</h2>
+            <p class="text-center mt-5 h2" id="second_title" >Commentaires signalés</p>
             <table class="table text-center  mt-5">
             <thead class="thead-dark">
                 <tr class="">

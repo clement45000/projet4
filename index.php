@@ -39,6 +39,8 @@ try{
                 break;
                 case "admin": $backController->adminHome(); //Admin accueil back
                 break;
+                case "updatebio": $backController->updateBiographie(); //modifier la biographie
+                break;
                 case "createpost": $backController->createPost(); // Ajouter un article back
                 break; 
                 case "deletepost": $backController->deletePost(); //Supprimer un Article et ses commentaires

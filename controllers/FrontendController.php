@@ -1,16 +1,19 @@
 <?php
 require_once 'models/PostDao.php';
 require_once 'models/CommentDao.php';
+require_once 'models/UtileDao.php';
 
 class FrontendController{
 
     private $postDao;
     private $commentDao;
+    private $utileDao;
 
     public function __construct(){
         // créatoin de l'objet des l'instanciation de la class
         $this->postDao = new PostDao();
         $this->commentDao = new CommentDao();
+        $this->utileDao = new UtileDao();
     }
 
     public function getHome(){
@@ -93,6 +96,7 @@ class FrontendController{
 
     public function getBiographie() {
         $title = 'Biographie';
+        $biographie = $this->utileDao->getBiographie();
         require_once "views/front/biographie.php";
     }
 
@@ -104,6 +108,61 @@ class FrontendController{
 
     public function getContact() {
         $title = 'Contactez-moi';
+        $unvalidObjet ='';
+        $unvalidfirstname ='';
+        $unvalidname ='';
+        $unvalidmail ='';
+        $unvalidmessage = '';
+        $mailerror ='';
+        $mailvalid = '';
+       
+
+        // if(!empty($_POST)){
+        //     extract($_POST);
+        //     $valid = true;
+        //     if(empty($objet)){
+        //         $valid=false;
+        //         $unvalidObjet ="Vous n'avez pas indiqué d'objet";
+        //     }
+        //     if(empty($nom)){
+        //         $valid=false;
+        //         $unvalidfirstname ="Vous n'avez pas indiqué votre nom";
+        //     }
+        //     if(empty($prenom)){
+        //         $valid=false;
+        //         $unvalidname ="Vous n'avez pas indiqué votre prénom";
+        //     }
+        //     if(!preg_match("/^[a-z0-9-_.]+@[a-z0-9-_.]+\.[a-z]{2,3}$/i",$mail)){
+        //         $valid =false;
+        //         $unvalidmail='Email invalid';
+        //     }
+        //     if(empty($mail)){
+        //         $valid=false;
+        //         $unvalidmail ="Vous n'avez pas indiqué votre adresse mail";
+        //     }
+        //     if(empty($message)){
+        //         $valid=false;
+        //         $unvalidmessage ="Vous n'avez écrit votre message";
+        //     }
+        //     if($valid){
+        //        $to = "baleineaho@gmail.com";
+        //        $sujet = $nom . "contact du site";
+        //        $header = "From: $nom <$mail>";
+        //        if(mail($to, $sujet, $message, $header)){
+        //         $mailvalid = 'Votre message a bien été envoyé';
+        //         unset($objet);
+        //         unset($nom);
+        //         unset($prenom);
+        //         unset($mail);
+        //         unset($message);
+        //        }
+        //        else{
+        //            $mailerror = "Une erreur est survenue et votre mail n'est pas parti";
+        //        }
+        //     }
+        // }
+
+
         require_once "views/front/contact.php";
     }
 

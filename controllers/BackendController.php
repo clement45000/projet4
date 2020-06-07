@@ -2,6 +2,7 @@
 require_once 'models/PostDao.php';
 require_once 'models/CommentDao.php';
 require_once 'models/MemberDao.php';
+require_once 'models/UtileDao.php';
 require_once 'config/Securite.php';
 
 class BackendController{
@@ -9,11 +10,13 @@ class BackendController{
     private $postDao;
     private $commentDao;
     private $memberDao;
+    private $utileDao;
 
     public function __construct(){
         $this->postDao = new PostDao();
         $this->commentDao = new CommentDao();
         $this->memberDao = new MemberDao();
+        $this->utileDao = new UtileDao();
     }
 
     //AFFICHE UN TABLEAU DES ARTICLES AVEC ACTION DE BASE DU CRUD
@@ -84,7 +87,6 @@ class BackendController{
         $content_art='';
         $author_art='';
         $validpost='';
-
     if(!empty($_POST)){    
         if(!empty($_POST['title']) AND !empty($_POST['content']) AND !empty($_POST['author'])){
             $post_title = htmlspecialchars($_POST['title']);
@@ -123,11 +125,6 @@ class BackendController{
             require_once "views/back/updatepost.php";
     }
     
-
-
-
-
-
     //IGNORE UN COMMENTAIRE REPORTE
     public function ignoreComment(){
         $title = 'Administration';
@@ -147,6 +144,21 @@ class BackendController{
         $deletecommentbyid = $this->commentDao->deleteCommentById($_GET['comment']);
         header('Location:?page=admin');
     }
+
+    //MODIFIER LA BIOGRAPHIE
+    public function updateBiographie(){
+        $title = "admin";
+        if($_SESSION['acces'] !== '1'){
+            header('Location:?page=home');
+        }
+        $bio = $this->utileDao->getBiographie();
+
+        if(!empty($_POST['titlebio']) && !empty($_POST['content_bio'])){ 
+            $updatebiofromdb = $this->utileDao->updateBiographie($_POST['titlebio'], $_POST['content_bio']);
+            header('Location: ?page=admin');
+            } 
+        require_once "views/back/updatebiographie.php";
+    }
  
     //CONNEXION 
     public function getLogIn() {
@@ -154,9 +166,7 @@ class BackendController{
         $pseudoform = '';
         $errors = '';
         $validation ='';
-        // var_dump($_SESSION);
 
-        //si le formulaire est remplit et envoyé
         if(!empty($_POST)){
             $pseudoform = ($_POST['pseudo']);
         

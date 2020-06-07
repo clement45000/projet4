@@ -57,7 +57,7 @@ body{
 
     /*-- HOME -- */
     #container_home{
-        padding: 0px !important;
+        padding: 5px !important;
     }
 
     #title_home{
@@ -68,9 +68,7 @@ body{
         height: 100px;
     }
 
-    #second_title{
-        font-size: 1.2em;
-    }
+   
 
     #last_posts{
         margin-top:1px !important;
@@ -148,6 +146,15 @@ body{
         font-size: 1.5em;
     }
 
+    #hr_biographie{
+        display: none;
+    }
+
+    #second_titlebiographie{
+        padding-top: 30px !important;
+        font-size: 1.5em;
+    }
+
     #imgbiographie{
         height: 150px;
     }
@@ -184,15 +191,13 @@ body{
         padding:  0rem !important;
     }
 
-    #hr_biographie{
-        display: none;
+    #gestion_post{
+        font-size: 1.5em !important; 
     }
 
-    #second_titlebiographie{
-        padding-top: 30px !important;
-        font-size: 1.5em;
+    #gestion_bio{
+        font-size: 1.5em !important; 
     }
-
 
     #link_update{
         padding:4px !important;
@@ -210,6 +215,9 @@ body{
 
         /*adminhome*/
         /*Array comments*/
+    #second_title{
+        font-size: 1.5em;
+    }
 
     #container_secondarray{
         padding:  0rem !important;
