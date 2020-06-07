@@ -2,7 +2,6 @@
 ob_start();
 ?>
  <?php if($validcomment !== ""){ ?><div class="alert alert-success text-center" role="alert"><?= htmlspecialchars($validcomment)?></div><?php } ?>
-<?= $postById['id_post'] ?>
     <div id="container_postbyid" class="container">
         <div id="post_paddingsize" class="border border-bg-dark mt-5 mb-5 pl-5 pr-5 shadow p-3 mb-5  bg-white rounded">
             <div class="bg-dark text-light" >
@@ -49,7 +48,7 @@ ob_start();
                     <textarea class="form-control" id="message" name="content" placeholder= "Ecrivez votre commentaire..." ></textarea>
                 </div>
                     <input type="hidden" name="flag" id="flag" value="0">
-                    <input type="hidden" name="idpost" id="idpost" value="<?= htmlspecialchars($postById['id_post'])?>" >
+                    <input type="hidden" name="idpost" id="idpost" value="<?=($postById['id_post'])?>" >
                 <button type="submit" class="btn btn-primary mb-5 ml-3">Envoyer votre message</button>
             </form>
         </div>

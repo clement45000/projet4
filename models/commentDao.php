@@ -4,7 +4,7 @@ require_once "models/Model.php";
 class CommentDao extends Model {
 
     public function getCommentsById($idpost) {                                                
-        $commentsById = $this->getPdoConnexion()->prepare('select id_comment, pseudo_comment, content_comment, DATE_FORMAT(date_comment, \'%d/%m/%Y\') AS date_comment, post_id from comments where post_id=?');
+        $commentsById = $this->getPdoConnexion()->prepare('select id_comment, pseudo_comment, content_comment, DATE_FORMAT(date_comment, \'%d/%m/%Y\') AS date_comment, post_id from comments where post_id=? ORDER BY id_comment');
         $commentsById->execute(array($idpost));
         return $commentsById->fetchAll(); 
     }
