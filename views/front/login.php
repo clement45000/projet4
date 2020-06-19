@@ -13,7 +13,7 @@ ob_start();
         </div>
         <?php } ?>
 
-        <form action="?page=login" method="post">
+        <form action="login" method="post">
             <div class="form-group">
                 <label for="pseudo">Nom de l'utilisateur</label>
                 <input type="text" name="pseudo" id="pseudo"  class="form-control" value="<?= $pseudoform ?>">

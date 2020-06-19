@@ -18,12 +18,12 @@ ob_start();
             <?php foreach ($allPosts as $allPost): ?>
 
                 <tr>
-                    <td class="align-middle"><a href="?page=postadmin&id=<?=$allPost['id_post']?>"><?= $allPost['title_post'] ?></a></td>
+                    <td class="align-middle"><a href="postadmin&id=<?=$allPost['id_post']?>"><?= $allPost['title_post'] ?></a></td>
                     <td class="align-middle" id="date"><?=$allPost['date_post']?></td>
-                    <td class="align-middle"><a href="?page=updatepost&id=<?=$allPost['id_post']?>" class="btn btn-primary" id="link_update">Modifier</a></td>
+                    <td class="align-middle"><a href="updatepost&id=<?=$allPost['id_post']?>" class="btn btn-primary" id="link_update">Modifier</a></td>
                   
                     <td class="align-middle">
-                        <form method="POST" action="?page=deletepost&id=<?=$allPost['id_post']?>" onSubmit="return confirm('voulez-vous vraiment supprimer cet article ?');"> <!-- SUPPRIMER UN ARTICLE ET COMM-->
+                        <form method="POST" action="deletepost&id=<?=$allPost['id_post']?>" onSubmit="return confirm('voulez-vous vraiment supprimer cet article ?');"> <!-- SUPPRIMER UN ARTICLE ET COMM-->
                             <button class="btn btn-danger" type="submit" id="btn_delete">Supprimer</button>
                         </form>
                     </td>
@@ -31,13 +31,13 @@ ob_start();
                 <?php endforeach; ?>
                 </tbody>
             </table>
-            <a href="?page=createpost" class="btn btn-success d-block">Ajouter un article</a>
+            <a href="createpost" class="btn btn-success d-block">Ajouter un article</a>
             <hr class='mt-5 pt-2'>
         </div>
 
         <div class="container bg-white text-center">
         <p id="gestion_bio" class="h2 text-center pt-5"> Gestion de la biographie</p>
-          <a href="?page=updatebio" class="btn btn-primary mt-4 mb-5"> Modifiez votre biographie</a>
+          <a href="updatebio" class="btn btn-primary mt-4 mb-5"> Modifiez votre biographie</a>
         </div>
 
 
@@ -60,12 +60,12 @@ ob_start();
                     <td class="align-middle" id="datecommentaire"><?=$getcommentreported['date_comment']?></td>
                     <td class="align-middle"><?=$getcommentreported['content_comment']?></td>
                     <td class="align-middle">
-                    <form method="POST" action="?page=ignorecomment&comment=<?=$getcommentreported['id_comment']?>" onSubmit="return confirm('voulez-vous vraiment ignorer ce commentaire ?');"> 
+                    <form method="POST" action="ignorecomment&comment=<?=$getcommentreported['id_comment']?>" onSubmit="return confirm('voulez-vous vraiment ignorer ce commentaire ?');"> 
                             <button id="ignore_com" class="btn btn-success text-light" type="submit">Ignorer</button>
                     </form>
                     </td>
                     <td class="align-middle">
-                        <form method="POST" action="?page=deletecommentreported&comment=<?=$getcommentreported['id_comment']?>" onSubmit="return confirm('Voulez-vous vraiment supprimer le commentaire ?');"> 
+                        <form method="POST" action="deletecommentreported&comment=<?=$getcommentreported['id_comment']?>" onSubmit="return confirm('Voulez-vous vraiment supprimer le commentaire ?');"> 
                             <button id="delete_com" class="btn btn-danger" type="submit">Supprimer</button>
                         </form>
                     </td>

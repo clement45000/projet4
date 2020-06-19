@@ -1,7 +1,7 @@
 <?php
 ob_start();
 ?>
-<a href="?page=admin" class="btn btn-primary mt-5 ml-5">Retour Accueil admin</a>
+<a href="admin" class="btn btn-primary mt-5 ml-5">Retour Accueil admin</a>
     <div id="container_adminpost" class="container ">
         <div id="testpadd" class="border border-bg-dark mt-5 mb-5 pl-5 pr-5 shadow p-3 mb-5  bg-white rounded">
             <div class="bg-dark text-light" >
@@ -20,7 +20,7 @@ ob_start();
                 <div class="text-center border border-bg-dark bg-light mt-2 pb-2">
                     <p class="mt-2 ml-2 mb-0"><strong><?=$commentById['pseudo_comment'] ?></strong> à écrit le <?=$commentById['date_comment'] ?></p>
                     <p class="mt-0 mb-0 ml-2"><?=$commentById['content_comment'] ?></p> 
-                    <form method="POST" action="?page=deletecomment&id=<?=$commentById['id_comment']?>" onSubmit="return confirm('voulez-vous vraiment supprimer ce commentaire ?');">
+                    <form method="POST" action="deletecomment&id=<?=$commentById['id_comment']?>" onSubmit="return confirm('voulez-vous vraiment supprimer ce commentaire ?');">
                             <button class="btn btn-link mt-2" type="submit">Supprimer le commentaire</button>
                     </form>
                 </div>    

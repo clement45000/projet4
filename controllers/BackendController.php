@@ -3,7 +3,7 @@ require_once 'models/PostDao.php';
 require_once 'models/CommentDao.php';
 require_once 'models/MemberDao.php';
 require_once 'models/UtileDao.php';
-require_once 'config/Securite.php';
+
 
 class BackendController{
 
@@ -24,7 +24,7 @@ class BackendController{
         $title = 'Administration';
         // var_dump($_SESSION);
         if($_SESSION['acces'] !== '1'){
-            header('Location:?page=home');
+            header('Location:home');
         }
         $allPosts = $this->postDao->getAllPosts();
         $getcommentsreported = $this->commentDao->getCommentsReported();
@@ -36,15 +36,15 @@ class BackendController{
     public function postAdmin(){
         $title = 'Administration';
         if($_SESSION['acces'] !== '1'){
-            header('Location:?page=home');
+            header('Location:home');
         }
         //Pour l'expetion l'id doit exister 
         if(isset($_GET['id']) && ($_GET['id']) >0){
         $postById = $this->postDao->getPostById($_GET['id']); //on recupere l'id et on affiche l'article (affichage) 
         $commentsById = $this->commentDao->getCommentsById($_GET['id']); // on recupere l'id et on affiche les com liées à l'article (affichage)
         } else {
-        throw new Exception("Cette page n'existe pas");
-    }
+             throw new Exception("Cette page n'existe pas");
+        }
         require_once "views/back/postadmin.php";
     }
 
@@ -52,26 +52,26 @@ class BackendController{
     public function deletePost(){
         $title = 'Administration';
         if($_SESSION['acces'] !== '1'){
-            header('Location:?page=home');
+            header('Location:home');
         }
         $deletePost = $this->postDao->deletePostAndComments($_GET['id']); 
-        header('Location:?page=admin');
+        header('Location:admin');
     }
 
     //SUPPRIMER UN COMMENTAIRE EN PARTICULIER
     public function deleteComment(){
         if($_SESSION['acces'] !== '1'){
-            header('Location:?page=home');
+            header('Location:home');
         }
         $deletecommentbyid = $this->commentDao->deleteCommentById($_GET['id']);
-        header('Location:?page=validation'); 
+        header('Location:validation'); 
     }
 
     //Validation du commentaire supprimé
     public function validate(){
         $title = 'Administration';
         if($_SESSION['acces'] !== '1'){
-            header('Location:?page=home');
+            header('Location:home');
         }
         require_once "views/back/deletecomment.php";
     }
@@ -80,44 +80,44 @@ class BackendController{
     public function createPost(){
         $title = 'Administration';
         if($_SESSION['acces'] !== '1'){
-            header('Location:?page=home');
+            header('Location:home');
         }
         $unvalid ='';
         $title_art='';
         $content_art='';
         $author_art='';
         $validpost='';
-    if(!empty($_POST)){    
-        if(!empty($_POST['title']) AND !empty($_POST['content']) AND !empty($_POST['author'])){
-            $post_title = htmlspecialchars($_POST['title']);
-            $post_content =($_POST['content']);
-            $post_author = htmlspecialchars($_POST['author']);
-            //  $resultat = $this->postDao-> createPostdb($_POST['title'],$_POST['date'],$_POST['content'],$_POST['author']); 
-             $resultat = $this->postDao-> createPostdb($post_title,$post_content,$post_author); 
-        }else{
-            $title_art=($_POST['title']);;
-            $content_art=($_POST['content']);;
-            $author_art=($_POST['author']);;
-            $unvalid ='Tous les champs doivent être remplis';
-        }   
-        $validpost ='Votre article a bien été posté';
-    }
+        if(!empty($_POST)){    
+            if(!empty($_POST['title']) AND !empty($_POST['content']) AND !empty($_POST['author'])){
+                $post_title = htmlspecialchars($_POST['title']);
+                $post_content =($_POST['content']);
+                $post_author = htmlspecialchars($_POST['author']);
+                //  $resultat = $this->postDao-> createPostdb($_POST['title'],$_POST['date'],$_POST['content'],$_POST['author']); 
+                $resultat = $this->postDao-> createPostdb($post_title,$post_content,$post_author); 
+                $validpost ='Votre article a bien été posté';
+            }else{
+                $title_art=($_POST['title']);;
+                $content_art=($_POST['content']);;
+                $author_art=($_POST['author']);;
+                $unvalid ='Tous les champs doivent être remplis';
+            }   
+        }
          require_once "views/back/addpost.php";
-     }
+    }
 
-    //MODIFICATION D UN ARTICLE 
     
+    //MODIFICATION D UN ARTICLE 
     public function updatePost(){
         $title = 'Administration';
 
         if($_SESSION['acces'] !== '1'){
-            header('Location:?page=home');
+            header('Location:home');
         }
             if(isset($_GET['id']) && ($_GET['id']) >0){
                 $update = $this->postDao->getPostById($_GET['id']); //Methode qui récupère l'id pour affiche la news
                 if(!empty($_POST['title']) && !empty($_POST['content'])  && !empty($_POST['author'])){
                 $updatepost = $this->postDao->updatepostFromDb($_POST['title'], $_POST['content'], $_POST['author'], $_GET['id']); //Methode qui modifi la news
-                header('Location: ?page=admin');
+                header('Location:admin');
                 } 
             } else{
                 throw new Exception("Cette page n'existe pas");
@@ -129,33 +129,34 @@ class BackendController{
     public function ignoreComment(){
         $title = 'Administration';
         if($_SESSION['acces'] !== '1'){
-            header('Location:?page=home');
+            header('Location:home');
         }
         $ignorereport = $this->commentDao->ignoreCommentReported($_GET['comment']);//id_commentaire
-        header('Location:?page=admin');
-      }
+        header('Location:admin');
+    }
+
 
     // SUPPRIMER UN COMMENTAIRE REPORTE
     public function deleteCommentReported(){
         $title="admin";
         if($_SESSION['acces'] !== '1'){
-            header('Location:?page=home');
+            header('Location:home');
         }
         $deletecommentbyid = $this->commentDao->deleteCommentById($_GET['comment']);
-        header('Location:?page=admin');
+        header('Location:admin');
     }
 
     //MODIFIER LA BIOGRAPHIE
     public function updateBiographie(){
         $title = "admin";
         if($_SESSION['acces'] !== '1'){
-            header('Location:?page=home');
+            header('Location:home');
         }
         $bio = $this->utileDao->getBiographie();
 
         if(!empty($_POST['titlebio']) && !empty($_POST['content_bio'])){ 
             $updatebiofromdb = $this->utileDao->updateBiographie($_POST['titlebio'], $_POST['content_bio']);
-            header('Location: ?page=admin');
+            header('Location:admin');
             } 
         require_once "views/back/updatebiographie.php";
     }
@@ -186,10 +187,10 @@ class BackendController{
                     //  echo 'vous êtes connecté !';
                 } 
                 if(isset($_SESSION['acces'])  && $_SESSION['acces'] === "1"){ // si mdp est ok et que role_user  = 1  
-                    header('Location:?page=admin'); ///redirection page admin
+                    header('Location:admin'); ///redirection page admin
                 }
                     if(isset($_SESSION['acces'])  && $_SESSION['acces'] === "2"){ // si mdp est ok et que role_user  = 2 
-                        header('Location:?page=home'); // redirection page accueil
+                        header('Location:home'); // redirection page accueil
                     }
                     $errors = 'mauvais identifiant ou mot de passe';
             }
@@ -203,7 +204,7 @@ class BackendController{
     //DECONNEXION
     public function getLogout(){
         session_destroy();
-        header('Location:?page=home');
+        header('Location:home');
     }
 
 

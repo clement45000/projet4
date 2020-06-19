@@ -4,7 +4,7 @@ require_once "controllers/FrontendController.php";
 require_once "controllers/BackendController.php";
 $frontController = new FrontendController();
 $backController = new BackendController();
-
+define("URL",str_replace("index.php","", (isset($_SERVER["HTTPS"])? "https" : "http"). "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 try{
     if(!empty($_GET['page'])){
         $url = htmlspecialchars($_GET['page']);
@@ -51,8 +51,10 @@ try{
                 break;
                 case "postadmin": $backController->postAdmin(); //Affiche un article et ses commentaires
                 break;  
+                case "error403": throw new Exception("Vous n'avez pas le droit");
+                break;
                 case "error404":
-                default : throw new Exception("la page n'existe pas erreur 404");
+                default :  $frontController->getHome();//throw new Exception("la page n'existe pas");
             }
         } else {
             $frontController->getHome();

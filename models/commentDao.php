@@ -42,11 +42,5 @@ class CommentDao extends Model {
         $ignorereport->execute(array($id_comment));
         return $ignorereport;
     }
-
-    //Supprimer le commentaire reporté
     
-
-
-    
-
 }

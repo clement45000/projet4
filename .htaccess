@@ -1,0 +1,11 @@
+RewriteEngine On 
+#lancement de la reecriture URL
+
+#Les lignes suivante redirige les pages vers index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?page=$1
+
+ErrorDocument 403 /p4test/index.php?page=error403
+ErrorDocument 404 /p4test/index.php?page=error404

@@ -1,7 +1,7 @@
 <?php
 ob_start();
 ?>
-    <a href="?page=admin" class="btn btn-primary mt-5 ml-5">Retour à l'admin</a>
+    <a href="admin" class="btn btn-primary mt-5 ml-5">Retour à l'admin</a>
 
     <div class="container mt-5">
     <p class="text-center mt-5 mb-5 h1">Modifiez la biographie</p>

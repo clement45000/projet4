@@ -1,6 +1,7 @@
 <?php
 ob_start();
 ?>
+ 
  <?php if($validcomment !== ""){ ?><div class="alert alert-success text-center" role="alert"><?= htmlspecialchars($validcomment)?></div><?php } ?>
     <div id="container_postbyid" class="container">
         <div id="post_paddingsize" class="border border-bg-dark mt-5 mb-5 pl-5 pr-5 shadow p-3 mb-5  bg-white rounded">
@@ -22,9 +23,9 @@ ob_start();
                     <p class="mt-0 mb-0 ml-2"><?=htmlspecialchars($commentById['content_comment'])?></p> 
                     <?php if(isset($_SESSION['acces']) && $_SESSION['acces'] === "2"){ ?>
                     <!-- action va traiter le formulaire via la fonction-->
-                    <form method="POST" action="?page=reportcomment&idjojo=<?=$commentById['id_comment']?>" onSubmit="return confirm ('voulez-vous vraiment signaler ce commentaire ?');">
+                    <form method="POST" action="reportcomment&idjojo=<?=$commentById['id_comment']?>" onSubmit="return confirm ('voulez-vous vraiment signaler ce commentaire ?');">
                             <button class="btn btn-link" type="submit">signaler le commentaire</button>
-                            <?=$commentById['id_comment']?> 
+                            
                     </form>
                     <?php } ?>   
                    <!-- <a href="?page=jojo&id=< class="ml-2 pt-0">Signaler le commentaires</a>-->
@@ -38,7 +39,7 @@ ob_start();
 
  
 
-            <form class="" id="test" action="?page=comment&id=<?=$postById['id_post']?>" method="post">
+            <form class="" id="test" action="comment&id=<?=$postById['id_post']?>" method="post">
                 <div class="form-group col-6">
                     <label for="pseudo">Votre pseudo</label>
                     <input type="text" name="pseudo" id="pseudo" class="form-control"  placeholder= "Entrez votre pseudo..." value="<?= $pseudoform ?>">
@@ -54,7 +55,7 @@ ob_start();
         </div>
     <?php }else{ ?>
         <div class="border border-bg-dark bg-light mt-2 mb-5 pt-2 text-center">
-            <p>Vous devez être connecté pour rédiger un un commentaire. <a href="?page=login">Se connecter</a> ou  <a href="?page=signup">S'inscrire</a>.</p>
+            <p>Vous devez être connecté pour rédiger un un commentaire. <a href="login">Se connecter</a> ou  <a href="signup">S'inscrire</a>.</p>
         </div>
     <?php } ?>
 
@@ -68,10 +69,6 @@ ob_start();
 $content = ob_get_clean();
 require "views/commons/template.php";
 ?>
-
-
-
-
 
 
 

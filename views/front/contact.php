@@ -9,7 +9,7 @@ ob_start();
     </div>
     <?php if($mailerror !== ""){ ?><div class="alert alert-danger text-center" role="alert"><?= htmlspecialchars($mailerror)?></div><?php } ?>
     <?php if($mailvalid !== ""){ ?><div class="alert alert-success text-center" role="alert"><?= htmlspecialchars($mailvalid)?></div><?php } ?>
-            <form action="?page=contact" method="post">
+            <form action="contact" method="post">
             <div class="form-group">
                     <label for="objet">Objet</label>
                     <?php if($unvalidObjet !== ""){ ?><span class="text-danger"><?= htmlspecialchars($unvalidObjet)?></span><?php } ?>

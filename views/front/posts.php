@@ -11,7 +11,7 @@ ob_start();
         <hr class="mt-5">
         <?php foreach ($allPosts as $allPost): ?>
                 <div id="lastposts_fromallposts" class="mt-5 mb-5 text-center">    
-                <h3 id="titlepost_fromallposts" class="text-info"><a class=" text-decoration-none" href="?page=post&id=<?=$allPost['id_post']?>"><?= $allPost['title_post'] ?></a></h3>  
+                <h3 id="titlepost_fromallposts" class="text-info"><a class=" text-decoration-none" href="post&id=<?=$allPost['id_post']?>"><?= $allPost['title_post'] ?></a></h3>  
                <p id="date_fromallposts"> publié le : <?=$allPost['date_post']?> </p>
                 </div> 
                 <hr class="mt-5">   

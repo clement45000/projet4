@@ -3,7 +3,7 @@ ob_start();
 ?>
 
 
-<a href="?page=admin" class="btn btn-primary mt-5 ml-5">Retour à l'admin</a>
+<a href="admin" class="btn btn-primary mt-5 ml-5">Retour à l'admin</a>
 
 <div  class="container mt-5">
 
@@ -11,7 +11,7 @@ ob_start();
 <?php if($unvalid !== ""){ ?> <div class="alert alert-danger text-center mt-5" role="alert"> <?= htmlspecialchars($unvalid)?> </div> <?php } ?>
 <?php if($validpost !== ""){ ?> <div class="alert alert-success text-center mt-5" role="alert"> <?= htmlspecialchars($validpost)?> </div> <?php } ?>      
         
-    <form action="?page=createpost" method="post">
+    <form action="createpost" method="post">
         <div class="form-group">
             <label for="Titre">Titre</label>
             <input type="text" name="title" id="title" class="form-control" placeholder= "Entrez votre titre" value="<?= $title_art ?>" >
