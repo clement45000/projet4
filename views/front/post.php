@@ -7,7 +7,7 @@ ob_start();
         <div id="post_paddingsize" class="border border-bg-dark mt-5 mb-5 pl-5 pr-5 shadow p-3 mb-5  bg-white rounded">
             <div class="bg-dark text-light" >
                 <h1 id="firsttitle_post" class="text-center pt-5 mt-5 mb-5"><?=htmlspecialchars($postById['title_post'])?></h1>
-                <img id="img_post" class="simg" src="public/images/deux.jpg"> 
+                <img id="img_post" class="simg" src="<?= URL ?>public/images/deux.jpg"> 
                 <p class ="text-center mt-4 pb-5"> Publié le : <?=htmlspecialchars($postById['date_post'])?>  </p>
             </div>
                 <p class ="text-center text-muted mt-5 mb-5"><?=($postById['content_post'])?>  </p>
@@ -55,7 +55,7 @@ ob_start();
         </div>
     <?php }else{ ?>
         <div class="border border-bg-dark bg-light mt-2 mb-5 pt-2 text-center">
-            <p>Vous devez être connecté pour rédiger un un commentaire. <a href="login">Se connecter</a> ou  <a href="signup">S'inscrire</a>.</p>
+            <p>Vous devez être connecté pour rédiger un un commentaire. <a href="<?= URL ?>login">Se connecter</a> ou  <a href="<?= URL ?>signup">S'inscrire</a>.</p>
         </div>
     <?php } ?>
 

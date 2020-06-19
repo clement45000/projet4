@@ -18,12 +18,12 @@ ob_start();
                 <div class="form-group">
                     <label for="nom">Pseusdo</label> 
                     <?php if($pseudoinvalide !== ""){ ?><span class="text-danger"><?= htmlspecialchars($pseudoinvalide)?></span><?php } ?>
-                    <input type="text" name="pseudo" id="pseudo" class="form-control" placeholder= "Entrez un pseudo" value='<?=$pseudovalue?>'>
+                    <input type="text" name="pseudo" id="pseudo" class="form-control" placeholder= "Entrez un pseudo" value='<?=htmlspecialchars($pseudovalue)?>'>
                 </div>
 
                 <div class="form-group">
                     <label for="mail">Email</label> <?php if($mailuse !== ""){ ?><span class="text-danger"><?= htmlspecialchars($mailuse)?></span><?php } ?>
-                    <input type="email" name="mail" id="mail" class="form-control" placeholder= "nom@exemple.com" value='<?=$mailvalue?>'>
+                    <input type="email" name="mail" id="mail" class="form-control" placeholder= "nom@exemple.com" value='<?=htmlspecialchars($mailvalue)?>'>
                 </div> 
 
 

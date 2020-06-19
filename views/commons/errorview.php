@@ -5,7 +5,7 @@ ob_start();
    <p class="h1 font-weight-bold  ">Oups une erreur s'est produite</p>
     <p class= "h3 mt-3 "><?= $errorMessage ?></p>
         <div>
-        <img src="public/images/error.jpg"  alt="Responsive image" class="mt-5" width='30%'>
+        <img src="<?= URL ?>public/images/error.jpg"  alt="Responsive image" class="mt-5" width='30%'>
    </div>
 
 <?php

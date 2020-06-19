@@ -7,7 +7,7 @@ ob_start();
         <div class="bg-dark text-light ">
             <h1 id="title_biographie" class="text-center mt-5 pt-5 ">Biographie de Jean Forteroch</h1>
             <p class="text-center pb-5">Mon histoire en quelques lignes</p>
-            <img id="imgbiographie" class="simg" src="public/images/111.jpg"> 
+            <img id="imgbiographie" class="simg" src="<?= URL ?>public/images/111.jpg"> 
         </div>
         <hr id="hr_biographie" class="mt-5">
         <h2 id="second_titlebiographie" class="text-center text-dark"><?= $biographie['biographie_title'] ?></h2>

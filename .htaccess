@@ -7,5 +7,12 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^(.*)$ index.php?page=$1
 
-ErrorDocument 403 /p4test/index.php?page=error403
-ErrorDocument 404 /p4test/index.php?page=error404
+ErrorDocument 403 /projet_4/index.php?page=error403
+ErrorDocument 404 /projet_4/index.php?page=error404
+
+#Protège l'accès aux dossier models views controllers ect...
+Options All -Indexes 
+
+ServerSignature Off
+Options +FollowSymlinks
+AddDefaultCharset UTF-8

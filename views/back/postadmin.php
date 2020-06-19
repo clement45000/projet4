@@ -1,7 +1,7 @@
 <?php
 ob_start();
 ?>
-<a href="admin" class="btn btn-primary mt-5 ml-5">Retour Accueil admin</a>
+<a href="<?= URL ?>admin" class="btn btn-primary mt-5 ml-5">Retour Accueil admin</a>
     <div id="container_adminpost" class="container ">
         <div id="testpadd" class="border border-bg-dark mt-5 mb-5 pl-5 pr-5 shadow p-3 mb-5  bg-white rounded">
             <div class="bg-dark text-light" >

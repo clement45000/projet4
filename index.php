@@ -51,7 +51,7 @@ try{
                 break;
                 case "postadmin": $backController->postAdmin(); //Affiche un article et ses commentaires
                 break;  
-                case "error403": throw new Exception("Vous n'avez pas le droit");
+                case "error403": throw new Exception("Vous ne pouvez pas accéder à cette page");
                 break;
                 case "error404":
                 default :  $frontController->getHome();//throw new Exception("la page n'existe pas");

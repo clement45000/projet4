@@ -6,13 +6,13 @@ ob_start();
             <h1 id="title_allposts" class="text-center mt-5 pt-5" >Retrouvez tout mes articles</h1>
             <p class="text-center mt-4 pb-5 ">Je vous souhaite une bonne lecture</p>
         </div>
-        <img id="imgheaderallposts" class="simg" src="public/images/un.jpg"> 
+        <img id="imgheaderallposts" class="simg" src="<?= URL ?>public/images/un.jpg"> 
         <h2 id="secondtitle_allposts" class="text-center mt-5">Retrouvez tout mes épisodes sur l'Alaska</h2>
         <hr class="mt-5">
         <?php foreach ($allPosts as $allPost): ?>
                 <div id="lastposts_fromallposts" class="mt-5 mb-5 text-center">    
-                <h3 id="titlepost_fromallposts" class="text-info"><a class=" text-decoration-none" href="post&id=<?=$allPost['id_post']?>"><?= $allPost['title_post'] ?></a></h3>  
-               <p id="date_fromallposts"> publié le : <?=$allPost['date_post']?> </p>
+                <h3 id="titlepost_fromallposts" class="text-info"><a class=" text-decoration-none" href="<?= URL ?>post&id=<?=htmlspecialchars($allPost['id_post'])?>"><?= htmlspecialchars($allPost['title_post']) ?></a></h3>  
+               <p id="date_fromallposts"> publié le : <?=htmlspecialchars($allPost['date_post'])?> </p>
                 </div> 
                 <hr class="mt-5">   
             <?php endforeach; ?>

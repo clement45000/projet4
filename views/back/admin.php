@@ -18,9 +18,9 @@ ob_start();
             <?php foreach ($allPosts as $allPost): ?>
 
                 <tr>
-                    <td class="align-middle"><a href="postadmin&id=<?=$allPost['id_post']?>"><?= $allPost['title_post'] ?></a></td>
+                    <td class="align-middle"><a href="<?= URL ?>postadmin&id=<?=$allPost['id_post']?>"><?= $allPost['title_post'] ?></a></td>
                     <td class="align-middle" id="date"><?=$allPost['date_post']?></td>
-                    <td class="align-middle"><a href="updatepost&id=<?=$allPost['id_post']?>" class="btn btn-primary" id="link_update">Modifier</a></td>
+                    <td class="align-middle"><a href="<?= URL ?>updatepost&id=<?=$allPost['id_post']?>" class="btn btn-primary" id="link_update">Modifier</a></td>
                   
                     <td class="align-middle">
                         <form method="POST" action="deletepost&id=<?=$allPost['id_post']?>" onSubmit="return confirm('voulez-vous vraiment supprimer cet article ?');"> <!-- SUPPRIMER UN ARTICLE ET COMM-->
@@ -37,7 +37,7 @@ ob_start();
 
         <div class="container bg-white text-center">
         <p id="gestion_bio" class="h2 text-center pt-5"> Gestion de la biographie</p>
-          <a href="updatebio" class="btn btn-primary mt-4 mb-5"> Modifiez votre biographie</a>
+          <a href="<?= URL ?>updatebio" class="btn btn-primary mt-4 mb-5"> Modifiez votre biographie</a>
         </div>
 
 
