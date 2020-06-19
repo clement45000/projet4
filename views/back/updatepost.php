@@ -10,17 +10,17 @@ ob_start();
 
             <div class="form-group">
                 <label for="Titre">Titre</label>
-                <input type="text" name="title" id="title" class="form-control" value="<?= $update['title_post']?>">
+                <input type="text" name="title" id="title" class="form-control" value="<?=htmlspecialchars($update['title_post'])?>">
             </div>
 
             <div class="form-group">
                 <label for="content">Contenu de l'article</label>
-                <textarea class="form-control" id="tinymce" name="content" ><?= $update['content_post']?></textarea>
+                <textarea class="form-control" id="tinymce" name="content" ><?=htmlspecialchars($update['content_post'])?></textarea>
             </div>
 
             <div class="form-group">
                 <label for="Auteur">Auteur</label>
-                <input type="text" name="author" id="auteur" class="form-control" value="<?= $update['author_post']?>">
+                <input type="text" name="author" id="auteur" class="form-control" value="<?=htmlspecialchars($update['author_post'])?>">
             </div>
 
             <button type="submit" class="btn btn-primary mb-5">Publier votre article</button>

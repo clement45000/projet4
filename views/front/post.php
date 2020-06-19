@@ -23,7 +23,7 @@ ob_start();
                     <p class="mt-0 mb-0 ml-2"><?=htmlspecialchars($commentById['content_comment'])?></p> 
                     <?php if(isset($_SESSION['acces']) && $_SESSION['acces'] === "2"){ ?>
                     <!-- action va traiter le formulaire via la fonction-->
-                    <form method="POST" action="reportcomment&idjojo=<?=$commentById['id_comment']?>" onSubmit="return confirm ('voulez-vous vraiment signaler ce commentaire ?');">
+                    <form method="POST" action="reportcomment&idjojo=<?=htmlspecialchars($commentById['id_comment'])?>" onSubmit="return confirm ('voulez-vous vraiment signaler ce commentaire ?');">
                             <button class="btn btn-link" type="submit">signaler le commentaire</button>
                             
                     </form>
@@ -39,17 +39,17 @@ ob_start();
 
  
 
-            <form class="" id="test" action="comment&id=<?=$postById['id_post']?>" method="post">
+            <form class="" id="test" action="comment&id=<?=htmlspecialchars($postById['id_post'])?>" method="post">
                 <div class="form-group col-6">
                     <label for="pseudo">Votre pseudo</label>
-                    <input type="text" name="pseudo" id="pseudo" class="form-control"  placeholder= "Entrez votre pseudo..." value="<?= $pseudoform ?>">
+                    <input type="text" name="pseudo" id="pseudo" class="form-control"  placeholder= "Entrez votre pseudo..." value="<?=htmlspecialchars($pseudoform)?>">
                 </div>
                 <div class="form-group col-12">
                     <label for="message">Message</label>
                     <textarea class="form-control" id="message" name="content" placeholder= "Ecrivez votre commentaire..." ></textarea>
                 </div>
                     <input type="hidden" name="flag" id="flag" value="0">
-                    <input type="hidden" name="idpost" id="idpost" value="<?=($postById['id_post'])?>" >
+                    <input type="hidden" name="idpost" id="idpost" value="<?=htmlspecialchars($postById['id_post'])?>" >
                 <button type="submit" class="btn btn-primary mb-5 ml-3">Envoyer votre message</button>
             </form>
         </div>

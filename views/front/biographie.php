@@ -10,10 +10,10 @@ ob_start();
             <img id="imgbiographie" class="simg" src="<?= URL ?>public/images/111.jpg"> 
         </div>
         <hr id="hr_biographie" class="mt-5">
-        <h2 id="second_titlebiographie" class="text-center text-dark"><?= $biographie['biographie_title'] ?></h2>
+        <h2 id="second_titlebiographie" class="text-center text-dark"><?=htmlspecialchars($biographie['biographie_title'])?></h2>
         <div id="text_biographie">
         <div class="mt-5">
-        <?= $biographie['bio_content'] ?>
+        <?= htmlspecialchars($biographie['bio_content'])?>
         </div>
       
 

@@ -5,22 +5,22 @@ ob_start();
     <div id="container_adminpost" class="container ">
         <div id="testpadd" class="border border-bg-dark mt-5 mb-5 pl-5 pr-5 shadow p-3 mb-5  bg-white rounded">
             <div class="bg-dark text-light" >
-                <h1 class="text-center pt-5 mt-5 mb-5"><?= $postById['title_post'] ?></h1>
-                <p class ="text-center mt-4 pb-5"> Publié le : <?=$postById['date_post'] ?>  </p>
+                <h1 class="text-center pt-5 mt-5 mb-5"><?=htmlspecialchars($postById['title_post'])?></h1>
+                <p class ="text-center mt-4 pb-5"> Publié le : <?=htmlspecialchars($postById['date_post'])?>  </p>
             </div>
         </div>
         <div class="bg-light text-muted p-2">
-        <p class ="text-center text-muted mt-5 mb-5"><?= $postById['content_post'] ?>  </p>
-                <p class ="text-center">Ecrit par : <?= $postById['author_post'] ?>  </p>
+        <p class ="text-center text-muted mt-5 mb-5"><?=$postById['content_post']?>  </p>
+                <p class ="text-center">Ecrit par : <?= htmlspecialchars($postById['author_post'])?>  </p>
         </div>
 
         <div class="mb-5 shadow p-3 mb-5">
                 <h4 class= "text-center bg-dark text-white  pt-2 pb-2">Les commentaires</h4>
             <?php foreach ($commentsById as $commentById) :?>
                 <div class="text-center border border-bg-dark bg-light mt-2 pb-2">
-                    <p class="mt-2 ml-2 mb-0"><strong><?=$commentById['pseudo_comment'] ?></strong> à écrit le <?=$commentById['date_comment'] ?></p>
-                    <p class="mt-0 mb-0 ml-2"><?=$commentById['content_comment'] ?></p> 
-                    <form method="POST" action="deletecomment&id=<?=$commentById['id_comment']?>" onSubmit="return confirm('voulez-vous vraiment supprimer ce commentaire ?');">
+                    <p class="mt-2 ml-2 mb-0"><strong><?=htmlspecialchars($commentById['pseudo_comment'])?></strong> à écrit le <?=htmlspecialchars($commentById['date_comment'])?></p>
+                    <p class="mt-0 mb-0 ml-2"><?=htmlspecialchars($commentById['content_comment'])?></p> 
+                    <form method="POST" action="deletecomment&id=<?=htmlspecialchars($commentById['id_comment'])?>" onSubmit="return confirm('voulez-vous vraiment supprimer ce commentaire ?');">
                             <button class="btn btn-link mt-2" type="submit">Supprimer le commentaire</button>
                     </form>
                 </div>    

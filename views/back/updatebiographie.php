@@ -10,12 +10,12 @@ ob_start();
 
             <div class="form-group">
                 <label for="Titre">Ajouter un sous-titre</label>
-                <input type="text" name="titlebio" id="title" class="form-control" value="<?=$bio['biographie_title']?>">
+                <input type="text" name="titlebio" id="title" class="form-control" value="<?=htmlspecialchars($bio['biographie_title'])?>">
             </div>
 
             <div class="form-group">
                 <label for="content">biographie</label>
-                <textarea class="form-control" id="tinymce" name="content_bio" ><?=$bio['bio_content']?></textarea>
+                <textarea class="form-control" id="tinymce" name="content_bio" ><?=htmlspecialchars($bio['bio_content'])?></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary mb-5">Mettre à jour la biographie</button>

@@ -12,10 +12,10 @@ ob_start();
      
     <?php foreach ($lastPosts as $lastPost): ?>
                 <div id="last_posts" class="mt-5 mb-5 text-center">    
-                    <h3 id="title_post" class="text-info"><a class=" text-decoration-none" href="<?= URL ?>post&id=<?=$lastPost['id_post']?>"><?= $lastPost['title_post'] ?></a></h3>
+                    <h3 id="title_post" class="text-info"><a class=" text-decoration-none" href="<?= URL ?>post&id=<?=htmlspecialchars($lastPost['id_post'])?>"><?= htmlspecialchars($lastPost['title_post'])?></a></h3>
                     <p id="date_posthome">Publié le <?= $lastPost['date_post'] ?></p>
                                           
-                    <a id="link_posthome" class="text-decoration-none" href="<?= URL ?>post&id=<?=$lastPost['id_post']?>">Lire l'article</a>
+                    <a id="link_posthome" class="text-decoration-none" href="<?= URL ?>post&id=<?=htmlspecialchars($lastPost['id_post'])?>">Lire l'article</a>
                  
                 </div> 
             <hr class=" mb-4">
