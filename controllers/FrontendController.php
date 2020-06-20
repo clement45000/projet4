@@ -19,8 +19,6 @@ class FrontendController{
     public function getHome(){
         $title = 'Accueil';
         $lastPosts = $this->postDao->getLastPost();
-      //  $jojo = $lastPosts['content_post'];
-      //  $extrait = substr($lastPosts, 0,10);
         require_once "views/front/home.php";
     }
     
@@ -33,7 +31,7 @@ class FrontendController{
         $errorcomment = ''; 
         $invalid ='';
         $validcomment = '';
-       // $idurl = isset($_GET['id']);
+      
 
          if(isset($_GET['id']) && ($_GET['id']) >0){
              $postById = $this->postDao->getPostById($_GET['id']); 
@@ -86,8 +84,8 @@ class FrontendController{
      //SIGNALER UN COMMENTAIRE
     public function reportComment(){//if variable existe execute sinn renvoi un erreur
         $title = 'Jean Forteroch';
-        if(isset($_GET['idjojo'])){
-            $report = $this->commentDao->updateCommentForReporte(($_GET['idjojo']));///On veut récupérer l'id du commentaire
+        if(isset($_GET['id'])){
+            $report = $this->commentDao->updateCommentForReporte(($_GET['id']));///On veut récupérer l'id du commentaire
         } else {
             throw new Exception("Cette page n'existe pas");
         }

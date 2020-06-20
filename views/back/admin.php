@@ -18,13 +18,13 @@ ob_start();
             <?php foreach ($allPosts as $allPost): ?>
 
                 <tr>
-                    <td class="align-middle"><a href="<?= URL ?>postadmin&id=<?=htmlspecialchars($allPost['id_post'])?>"><?=htmlspecialchars($allPost['title_post']) ?></a></td>
-                    <td class="align-middle" id="date"><?=htmlspecialchars($allPost['date_post'])?></td>
-                    <td class="align-middle"><a href="<?= URL ?>updatepost&id=<?=htmlspecialchars($allPost['id_post'])?>" class="btn btn-primary" id="link_update">Modifier</a></td>
+                    <td class="align-middle"><a href="<?= URL ?>postadmin&amp;id=<?=htmlspecialchars($allPost['id_post'])?>"><?=htmlspecialchars($allPost['title_post']) ?></a></td>
+                    <td class="align-middle date"><?=htmlspecialchars($allPost['date_post'])?></td>
+                    <td class="align-middle"><a href="<?= URL ?>updatepost&amp;id=<?=htmlspecialchars($allPost['id_post'])?>" class="btn btn-primary link_update">Modifier</a></td>
                   
                     <td class="align-middle">
-                        <form method="POST" action="deletepost&id=<?=htmlspecialchars($allPost['id_post'])?>" onSubmit="return confirm('voulez-vous vraiment supprimer cet article ?');"> <!-- SUPPRIMER UN ARTICLE ET COMM-->
-                            <button class="btn btn-danger" type="submit" id="btn_delete">Supprimer</button>
+                        <form method="POST" action="deletepost&amp;id=<?=htmlspecialchars($allPost['id_post'])?>" onSubmit="return confirm('voulez-vous vraiment supprimer cet article ?');"> <!-- SUPPRIMER UN ARTICLE ET COMM-->
+                            <button class="btn btn-danger btn_delete" type="submit">Supprimer</button>
                         </form>
                     </td>
                 </tr>
@@ -57,15 +57,15 @@ ob_start();
             <?php foreach ($getcommentsreported as $getcommentreported): ?>
                 <tr>
                     <td class="align-middle" id="pseudo_arraycontent"><?=htmlspecialchars($getcommentreported['pseudo_comment'])?></td>
-                    <td class="align-middle" id="datecommentaire"><?=htmlspecialchars($getcommentreported['date_comment'])?></td>
+                    <td class="align-middle datecommentaire"><?=htmlspecialchars($getcommentreported['date_comment'])?></td>
                     <td class="align-middle"><?=htmlspecialchars($getcommentreported['content_comment'])?></td>
                     <td class="align-middle">
-                    <form method="POST" action="ignorecomment&comment=<?=htmlspecialchars($getcommentreported['id_comment'])?>" onSubmit="return confirm('voulez-vous vraiment ignorer ce commentaire ?');"> 
+                    <form method="POST" action="ignorecomment&amp;comment=<?=htmlspecialchars($getcommentreported['id_comment'])?>" onSubmit="return confirm('voulez-vous vraiment ignorer ce commentaire ?');"> 
                             <button id="ignore_com" class="btn btn-success text-light" type="submit">Ignorer</button>
                     </form>
                     </td>
                     <td class="align-middle">
-                        <form method="POST" action="deletecommentreported&comment=<?=htmlspecialchars($getcommentreported['id_comment'])?>" onSubmit="return confirm('Voulez-vous vraiment supprimer le commentaire ?');"> 
+                        <form method="POST" action="deletecommentreported&amp;comment=<?=htmlspecialchars($getcommentreported['id_comment'])?>" onSubmit="return confirm('Voulez-vous vraiment supprimer le commentaire ?');"> 
                             <button id="delete_com" class="btn btn-danger" type="submit">Supprimer</button>
                         </form>
                     </td>

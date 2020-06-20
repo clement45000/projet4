@@ -8,11 +8,27 @@ body{
     width: 100%;
 }
 
+@media all and  (max-width: 996px){
+    #title_home{
+        font-size: 2.0em;
+    }
+    #welcome{
+        font-size: 1.2em;
+    }
+
+}
+
 @media all and  (max-width: 762px){
+
+    #title_allposts{
+        font-size: 1.8em;
+    }
 
     /*adminhome*/
     /*Array post*/
-    
+    #welcome{
+        font-size: 1.2em;
+    }
 
     #first_title{
      font-size: 1.5em;
@@ -32,11 +48,7 @@ body{
         display:none;
     }
 
-    #date{
-        display:none;
-    }
-
-    #datecommentaire{
+    .date{
         display:none;
     }
     
@@ -44,7 +56,7 @@ body{
         display:none;
     }
 
-    #datecommentaire{
+    .datecommentaire{
         display:none;
     }
 
@@ -60,6 +72,10 @@ body{
         padding: 5px !important;
     }
 
+    #welcome{
+        font-size: 1.0em;
+    }
+
     #title_home{
         font-size: 1.5em;
     }
@@ -68,19 +84,18 @@ body{
         height: 100px;
     }
 
-   
 
-    #last_posts{
+    .last_posts{
         margin-top:1px !important;
         margin-bottom:2px !important;
     }
 
-    #title_post{
+    .title_post{
         font-size: 1.4em;
     }
 
 
-    #date_posthome{
+    .date_posthome{
         font-size: 0.9em;
         margin-bottom:2px !important;
     }
@@ -119,16 +134,16 @@ body{
         font-size: 1.2em;
     }
 
-    #lastposts_fromallposts{
+    .lastposts_fromallposts{
         margin-top:1px !important;
         margin-bottom:2px !important;
     }
 
-    #titlepost_fromallposts{
+    .titlepost_fromallposts{
         font-size: 1.4em;
     }
 
-    #date_fromallposts{
+    .date_fromallposts{
         font-size: 0.9em;
     }
 
@@ -199,12 +214,12 @@ body{
         font-size: 1.5em !important; 
     }
 
-    #link_update{
+    .link_update{
         padding:4px !important;
         font-size: 0.8em; 
     }
 
-    #btn_delete{
+    .btn_delete{
         padding:3px;
         font-size: 0.8em; 
     }
