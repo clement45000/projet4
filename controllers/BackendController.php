@@ -2,7 +2,7 @@
 require_once 'models/PostDao.php';
 require_once 'models/CommentDao.php';
 require_once 'models/MemberDao.php';
-require_once 'models/UtileDao.php';
+require_once 'models/BioDao.php';
 
 
 class BackendController{
@@ -10,13 +10,13 @@ class BackendController{
     private $postDao;
     private $commentDao;
     private $memberDao;
-    private $utileDao;
+    private $bioDao;
 
     public function __construct(){
         $this->postDao = new PostDao();
         $this->commentDao = new CommentDao();
         $this->memberDao = new MemberDao();
-        $this->utileDao = new UtileDao();
+        $this->bioDao = new BioDao();
     }
 
    
@@ -152,10 +152,10 @@ class BackendController{
         if($_SESSION['acces'] !== '1'){
             header('Location:home');
         }
-        $bio = $this->utileDao->getBiographie();
+        $bio = $this->bioDao->getBiographie();
 
         if(!empty($_POST['titlebio']) && !empty($_POST['content_bio'])){ 
-            $updatebiofromdb = $this->utileDao->updateBiographie($_POST['titlebio'], $_POST['content_bio']);
+            $updatebiofromdb = $this->bioDao->updateBiographie($_POST['titlebio'], $_POST['content_bio']);
             header('Location:admin');
             } 
         require_once "views/back/updatebiographie.php";

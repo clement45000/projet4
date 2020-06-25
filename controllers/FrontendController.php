@@ -1,7 +1,7 @@
 <?php
 require_once 'models/PostDao.php';
 require_once 'models/CommentDao.php';
-require_once 'models/UtileDao.php';
+require_once 'models/BioDao.php';
 
 class FrontendController{
 
@@ -10,10 +10,9 @@ class FrontendController{
     private $utileDao;
 
     public function __construct(){
-        // créatoin de l'objet des l'instanciation de la class
         $this->postDao = new PostDao();
         $this->commentDao = new CommentDao();
-        $this->utileDao = new UtileDao();
+        $this->bioDao = new BioDao();
     }
 
     public function getHome(){
@@ -23,7 +22,6 @@ class FrontendController{
     }
     
    
-    //Lecture d'un billet via son id
     public function getPostAndComment(){
         $title = 'Article';
         $pseudoform ='';
@@ -42,7 +40,7 @@ class FrontendController{
         require_once "views/front/post.php";
     }
 
-    //AJOUT COMMENTAIRE 
+ 
     public function addComment(){
       
             $title = 'commentaire validé';  
@@ -54,9 +52,8 @@ class FrontendController{
             $postById = $this->postDao->getPostById($_GET['id']); 
             $commentsById = $this->commentDao->getCommentsById($_GET['id']);
           
-                if(!empty($_POST)){ //Si le form est remplit et les information envoyé
-                    if(!empty($_POST['pseudo']) && !empty($_POST['content'])){ //si les champs ne sont pas vides
-                        //ajoute le commentaire
+                if(!empty($_POST)){ 
+                    if(!empty($_POST['pseudo']) && !empty($_POST['content'])){ 
                         $comment_title = htmlspecialchars($_POST['pseudo']); 
                         $comment_content = htmlspecialchars($_POST['content']); 
                         $comment_flag = htmlspecialchars($_POST['flag']); 
@@ -74,39 +71,39 @@ class FrontendController{
             require_once "views/front/post.php";
     }
     
-    //VALIDATION AJOUT DU COMMENTAIRE
+    
     public function commentIsAdd()
     {
         $title = 'validation du commentaire';
         require_once "views/front/commentadd.php";
     }
 
-     //SIGNALER UN COMMENTAIRE
-    public function reportComment(){//if variable existe execute sinn renvoi un erreur
+    
+    public function reportComment(){
         $title = 'Jean Forteroch';
         if(isset($_GET['id'])){
-            $report = $this->commentDao->updateCommentForReporte(($_GET['id']));///On veut récupérer l'id du commentaire
+            $report = $this->commentDao->updateCommentForReporte(($_GET['id']));
         } else {
             throw new Exception("Cette page n'existe pas");
         }
         require_once "views/front/reportcomment.php";
     }
 
-    //AFFICHER LA BIOGRAPHIE
+   
     public function getBiographie() {
         $title = 'Biographie';
-        $biographie = $this->utileDao->getBiographie();
+        $biographie = $this->bioDao->getBiographie();
         require_once "views/front/biographie.php";
     }
 
-    //AFFICHER TOUS LES ARTICLES
+   
     public function getPosts() {
         $title = 'Toute mes aventures';
         $allPosts = $this->postDao->getAllPosts();
         require_once "views/front/posts.php";
     }
 
-    //FORMULAIRE DE CONTACT
+    
     public function getContact() {
         $title = 'Contactez-moi';
         $unvalidObjet ='';
@@ -147,8 +144,8 @@ class FrontendController{
              }
              if($valid){
                 $to = "clement.larpent@gmail.com";
-                $sujet = $nom . "contact du site";
-                $header = "From: $nom <$mail>";
+                $sujet = $objet;
+                $header = "From: $prenom $nom <$mail>";
                 if(mail($to, $sujet, $message, $header)){
                  $mailvalid = 'Votre message a bien été envoyé';
                  unset($objet);
@@ -162,8 +159,6 @@ class FrontendController{
                 }
              }
          }
-
-
         require_once "views/front/contact.php";
     }
 

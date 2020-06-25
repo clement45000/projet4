@@ -4,57 +4,58 @@ require_once "controllers/FrontendController.php";
 require_once "controllers/BackendController.php";
 $frontController = new FrontendController();
 $backController = new BackendController();
+
 define("URL",str_replace("index.php","", (isset($_SERVER["HTTPS"])? "https" : "http"). "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 try{
     if(!empty($_GET['page'])){
         $url = htmlspecialchars($_GET['page']);
             switch ($url){
-                case "home": $frontController->getHome();//Accueil avec les 6 derniers articles front
+                case "home": $frontController->getHome();
                 break;
-                case "post": $frontController->getPostAndComment();// Article en particulier avec ses commentaires front
+                case "post": $frontController->getPostAndComment();
                 break;
-                case "biographie": $frontController->getBiographie(); // Biographie front
+                case "biographie": $frontController->getBiographie(); 
                 break;
-                case "posts": $frontController->getPosts(); // Tous les articles front
+                case "posts": $frontController->getPosts(); 
                 break;
-                case "contact": $frontController->getContact(); // formulaire de contact front
+                case "contact": $frontController->getContact(); 
                 break;
-                case "signup": $backController->getSignUp(); //Inscription front
+                case "signup": $backController->getSignUp(); //front
                 break;
-                case "login": $backController->getLogIn(); // Connexion front
+                case "login": $backController->getLogIn(); //front
                 break;
-                case "logout": $backController->getLogout(); // deonnexion front
+                case "logout": $backController->getLogout(); //front
                 break;
-                case "comment": $frontController->addComment(); // Ajouter un commentaire
+                case "comment": $frontController->addComment(); //front
                 break;
-                case "commentadd": $frontController->commentIsAdd(); // Ajouter un commentaire
+                case "commentadd": $frontController->commentIsAdd(); //front
                 break;
-                case "reportcomment": $frontController->reportComment(); // SIGNALER UN COMMENTAIRE
+                case "reportcomment": $frontController->reportComment(); ///front
                 break;
-                case "deletecomment": $backController->deleteComment(); //Supprimer un Commentaire
+                case "deletecomment": $backController->deleteComment(); //back
                 break;
-                case "deletecommentreported": $backController->deleteCommentReported(); //Supprimer un Commentaire
+                case "deletecommentreported": $backController->deleteCommentReported(); 
                 break;
-                case "ignorecomment": $backController->ignoreComment(); //Ignorer un commentaire signalé
+                case "ignorecomment": $backController->ignoreComment(); 
                 break;
-                case "admin": $backController->adminHome(); //Admin accueil back
+                case "admin": $backController->adminHome(); 
                 break;
-                case "updatebio": $backController->updateBiographie(); //modifier la biographie
+                case "updatebio": $backController->updateBiographie(); 
                 break;
-                case "createpost": $backController->createPost(); // Ajouter un article back
+                case "createpost": $backController->createPost(); 
                 break; 
-                case "deletepost": $backController->deletePost(); //Supprimer un Article et ses commentaires
+                case "deletepost": $backController->deletePost(); 
                 break;
-                case "updatepost": $backController->updatePost(); // Modifier un article back
+                case "updatepost": $backController->updatePost(); 
                 break; 
-                case "validation": $backController->validate(); //Confirmation de suppresion d'un commentaire
+                case "validation": $backController->validate(); 
                 break;
-                case "postadmin": $backController->postAdmin(); //Affiche un article et ses commentaires
+                case "postadmin": $backController->postAdmin(); 
                 break;  
                 case "error403": throw new Exception("Vous ne pouvez pas accéder à cette page");
                 break;
                 case "error404":
-                default :  $frontController->getHome();//throw new Exception("la page n'existe pas");
+                default :  $frontController->getHome();
             }
         } else {
             $frontController->getHome();

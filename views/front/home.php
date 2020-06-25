@@ -13,7 +13,7 @@ ob_start();
     <?php foreach ($lastPosts as $lastPost): ?>
                 <div class="mt-5 mb-5 text-center last_posts ">    
                     <h2 class="text-info title_post"><a class=" text-decoration-none" href="<?= URL ?>post&amp;id=<?=htmlspecialchars($lastPost['id_post'])?>"><?= htmlspecialchars($lastPost['title_post'])?></a></h2>
-                    <p class="date_posthome">Publié le <?= $lastPost['date_post'] ?></p>
+                    <p class="date_posthome">Publié le <?= htmlspecialchars($lastPost['date_post']) ?></p>
                                           
                     <a class="text-decoration-none" href="<?= URL ?>post&amp;id=<?=htmlspecialchars($lastPost['id_post'])?>">Lire l'article</a>
                  
